@@ -1,0 +1,13 @@
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\bin\Debug\CZBK.ItcastOA.Model.dll.config
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\bin\Debug\CZBK.ItcastOA.Model.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\bin\Debug\CZBK.ItcastOA.Model.pdb
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\bin\Debug\EntityFramework.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\bin\Debug\EntityFramework.xml
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\obj\Debug\CZBK.ItcastOA.Model.csproj.CoreCompileInputs.cache
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\obj\Debug\CZBK.ItcastOA.Model.csproj.CopyComplete
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\obj\Debug\CZBK.ItcastOA.Model.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Model\obj\Debug\CZBK.ItcastOA.Model.pdb

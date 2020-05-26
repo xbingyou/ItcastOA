@@ -1,0 +1,16 @@
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\CZBK.ItcastOA.DALFactory.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\CZBK.ItcastOA.DALFactory.pdb
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\CZBK.ItcastOA.DAL.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\CZBK.ItcastOA.IDAL.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\CZBK.ItcastOA.Model.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\EntityFramework.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\CZBK.ItcastOA.DAL.pdb
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\CZBK.ItcastOA.IDAL.pdb
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\CZBK.ItcastOA.Model.pdb
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\CZBK.ItcastOA.Model.dll.config
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\EntityFramework.xml
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\obj\Debug\CZBK.ItcastOA.DALFactory.csprojAssemblyReference.cache
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\obj\Debug\CZBK.ItcastOA.DALFactory.csproj.CoreCompileInputs.cache
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\obj\Debug\CZBK.ItcastOA.DALFactory.csproj.CopyComplete
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\obj\Debug\CZBK.ItcastOA.DALFactory.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DALFactory\obj\Debug\CZBK.ItcastOA.DALFactory.pdb

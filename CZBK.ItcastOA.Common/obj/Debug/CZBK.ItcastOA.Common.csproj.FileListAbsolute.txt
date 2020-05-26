@@ -1,0 +1,6 @@
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Common\bin\Debug\CZBK.ItcastOA.Common.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Common\bin\Debug\CZBK.ItcastOA.Common.pdb
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.csprojAssemblyReference.cache
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.csproj.CoreCompileInputs.cache
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.pdb

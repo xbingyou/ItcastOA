@@ -1,0 +1,14 @@
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.IBLL.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.IBLL.pdb
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.IDAL.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.Model.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\EntityFramework.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.IDAL.pdb
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.Model.pdb
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.Model.dll.config
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\EntityFramework.xml
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.csprojAssemblyReference.cache
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.csproj.CoreCompileInputs.cache
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.csproj.CopyComplete
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.dll
+D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.pdb

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="USERINFO">
+      <EntityTypeMapping TypeName="Model.USERINFO">
+        <MappingFragment StoreEntitySet="USERINFO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+          <ScalarProperty Name="UNAME" ColumnName="UNAME" />
+          <ScalarProperty Name="UPWD" ColumnName="UPWD" />
+          <ScalarProperty Name="SUBTIME" ColumnName="SUBTIME" />
+          <ScalarProperty Name="DELFLAG" ColumnName="DELFLAG" />
+          <ScalarProperty Name="MODIFIEDON" ColumnName="MODIFIEDON" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="SORT" ColumnName="SORT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
