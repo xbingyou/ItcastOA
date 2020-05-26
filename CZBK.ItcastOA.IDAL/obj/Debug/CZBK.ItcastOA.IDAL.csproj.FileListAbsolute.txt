@@ -10,3 +10,15 @@ D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.I
 D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.csproj.CopyComplete
 D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.dll
 D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\bin\Debug\CZBK.ItcastOA.IDAL.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\bin\Debug\CZBK.ItcastOA.IDAL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\bin\Debug\CZBK.ItcastOA.Model.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\bin\Debug\EntityFramework.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\bin\Debug\CZBK.ItcastOA.Model.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\bin\Debug\CZBK.ItcastOA.Model.dll.config
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\bin\Debug\EntityFramework.xml
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.csprojAssemblyReference.cache
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.csproj.CoreCompileInputs.cache
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.csproj.CopyComplete
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.pdb

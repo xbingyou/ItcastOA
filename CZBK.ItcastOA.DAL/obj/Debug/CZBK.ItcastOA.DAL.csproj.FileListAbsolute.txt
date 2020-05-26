@@ -12,3 +12,17 @@ D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.It
 D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.csproj.CopyComplete
 D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.dll
 D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\CZBK.ItcastOA.DAL.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\CZBK.ItcastOA.DAL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\CZBK.ItcastOA.IDAL.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\CZBK.ItcastOA.Model.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\EntityFramework.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\CZBK.ItcastOA.IDAL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\CZBK.ItcastOA.Model.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\CZBK.ItcastOA.Model.dll.config
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\EntityFramework.xml
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.csprojAssemblyReference.cache
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.csproj.CoreCompileInputs.cache
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.csproj.CopyComplete
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.pdb

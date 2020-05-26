@@ -12,3 +12,17 @@ D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.I
 D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.csproj.CopyComplete
 D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.dll
 D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.IBLL.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.IBLL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.IDAL.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.Model.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\EntityFramework.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.IDAL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.Model.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\CZBK.ItcastOA.Model.dll.config
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\bin\Debug\EntityFramework.xml
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.csprojAssemblyReference.cache
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.csproj.CoreCompileInputs.cache
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.csproj.CopyComplete
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.IBLL\obj\Debug\CZBK.ItcastOA.IBLL.pdb
