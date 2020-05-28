@@ -13,7 +13,7 @@ namespace CZBK.ItcastOA.WebApp.Controllers
     public class UserInfoController : Controller
     {
         // GET: UserInfo
-        IUserInfoService UserInfoService = new UserInfoService();
+        IUserInfoService UserInfoService { get; set; }
 
         public ActionResult Index()
         {
@@ -85,11 +85,19 @@ namespace CZBK.ItcastOA.WebApp.Controllers
         }
         #endregion
 
-        #region 修改用户数据
-        //public ActionResult EditUserInfo(USERINFO userInfo)
-        //{
-        //    userInfo.MODIFIEDON = DateTime.Now;
-        //}
+        #region 完成用户数据的更新
+        public ActionResult EditUserInfo(USERINFO userInfo)
+        {
+            userInfo.MODIFIEDON = DateTime.Now;
+            if (UserInfoService.EditEntity(userInfo))
+            {
+                return Content("ok");
+            }
+            else
+            {
+                return Content("no");
+            }
+        }
         #endregion
     }
 }

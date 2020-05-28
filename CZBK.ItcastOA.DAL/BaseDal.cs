@@ -18,7 +18,6 @@ namespace CZBK.ItcastOA.DAL
         public T AddEntity(T entity)
         {
             Db.Set<T>().Add(entity);
-            //Db.SaveChanges();
             return entity;
         }
         /// <summary>
@@ -28,7 +27,6 @@ namespace CZBK.ItcastOA.DAL
         {
             Db.Entry<T>(entity).State = System.Data.Entity.EntityState.Deleted;
             return true;
-            //return Db.SaveChanges() > 0;
         }
         /// <summary>
         /// 更新
@@ -37,7 +35,6 @@ namespace CZBK.ItcastOA.DAL
         {
             Db.Entry<T>(entity).State = System.Data.Entity.EntityState.Modified;
             return true;
-            //return Db.SaveChanges() > 0;
         }
         /// <summary>
         /// 查询过滤
