@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace CZBK.ItcastOA.WebApp.Controllers
 {
-    public class UserInfoController : Controller
+    public class UserInfoController : BaseController //Controller
     {
         // GET: UserInfo
         IUserInfoService UserInfoService { get; set; }

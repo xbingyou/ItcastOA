@@ -221,3 +221,6 @@ F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\System.Web.Http.xml
 F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\System.Web.Http.WebHost.xml
 F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\System.Net.Http.Formatting.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\System.Net.Http.Formatting.xml
+F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\log4net.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\CZBK.ItcastOA.Common.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\CZBK.ItcastOA.Common.pdb
