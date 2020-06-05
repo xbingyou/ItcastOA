@@ -44,7 +44,7 @@
           <Property Name="SORT" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="USERINFO" EntityType="Self.USERINFO" />
+          <EntitySet Name="USERINFO" EntityType="Model.USERINFO" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>

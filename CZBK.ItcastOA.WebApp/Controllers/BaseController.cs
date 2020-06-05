@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CZBK.ItcastOA.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace CZBK.ItcastOA.WebApp.Controllers
 {
     public class BaseController : Controller
     {
+        public USERINFO LoginUser { get; set; }
         /// <summary>
         /// 执行控制器中的方法之前，先执行该方法
         /// </summary>

@@ -10,3 +10,8 @@ F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.csprojAssemb
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.csproj.CoreCompileInputs.cache
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\Commons.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\log4net.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\Memcached.ClientLibrary.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.csproj.CopyComplete

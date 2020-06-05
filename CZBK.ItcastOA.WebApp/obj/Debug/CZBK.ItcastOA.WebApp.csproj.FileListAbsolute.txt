@@ -224,3 +224,5 @@ F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\System.Net.Http.Formatting.xml
 F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\log4net.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\CZBK.ItcastOA.Common.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\CZBK.ItcastOA.Common.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\Memcached.ClientLibrary.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.WebApp\bin\ICSharpCode.SharpZipLib.dll
