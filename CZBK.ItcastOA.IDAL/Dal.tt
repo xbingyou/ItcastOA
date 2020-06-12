@@ -33,7 +33,7 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
     //fileManager.StartNewFile(entity.Name + "RepositoryExt.cs");
     //BeginNamespace(namespaceName, code);    
 #>	
-	public partial interface I<#=entity.Name#>DAL :IBaseDal<<#=entity.Name#>>
+	public partial interface I<#=string.Concat(entity.Name.First<char>().ToString().ToUpper(),entity.Name.ToLower().Substring(1))#>Dal :IBaseDal<<#=entity.Name#>>
     {
       
     }

@@ -21,7 +21,7 @@
         function afterLogin(data) {
             var serverData = data.split(':');
             if (serverData[0] == "ok") {
-                window.location.href="/UserInfo/Index"
+                window.location.href="/Home/Index"
             } else {
                 $("#errorMsg").css("display", "block");
                 $("#errorMsg").text(serverData[1]);

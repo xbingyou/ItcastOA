@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CZBK.ItcastOA.IBLL
 {
-    public interface IUserInfoService:IBaseService<USERINFO>
+    public partial interface IUserinfoService:IBaseService<USERINFO>
     {
         bool DeleteEntities(List<decimal> list);
     }

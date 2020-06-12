@@ -13,7 +13,7 @@ namespace CZBK.ItcastOA.WebApp.Controllers
     public class UserInfoController : BaseController //Controller
     {
         // GET: UserInfo
-        IUserInfoService UserInfoService { get; set; }
+        IUserinfoService UserInfoService { get; set; }
 
         public ActionResult Index()
         {

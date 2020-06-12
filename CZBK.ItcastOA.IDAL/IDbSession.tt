@@ -38,7 +38,7 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
     //fileManager.StartNewFile(entity.Name + "RepositoryExt.cs");
     //BeginNamespace(namespaceName, code);    
 #>	
-		I<#=entity.Name#>DAL <#=entity.Name#>DAL{get;set;}
+		I<#=string.Concat(entity.Name.First<char>().ToString().ToUpper(),entity.Name.ToLower().Substring(1))#>Dal <#=string.Concat(entity.Name.First<char>().ToString().ToUpper(),entity.Name.ToLower().Substring(1))#>Dal{get;set;}
 <#}#>
 	}	
 }

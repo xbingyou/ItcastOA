@@ -6,7 +6,6 @@ D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK
 D:\Users\xbingyov\source\repos\CZBK.ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.pdb
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\CZBK.ItcastOA.Common.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\CZBK.ItcastOA.Common.pdb
-F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.csprojAssemblyReference.cache
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.csproj.CoreCompileInputs.cache
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.pdb
@@ -15,3 +14,6 @@ F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\ICSharpCode.SharpZipLib.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\log4net.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\Memcached.ClientLibrary.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.csproj.CopyComplete
+F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\Newtonsoft.Json.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.Common\bin\Debug\Newtonsoft.Json.xml
+F:\GIT\ItcastOA\CZBK.ItcastOA.Common\obj\Debug\CZBK.ItcastOA.Common.csprojAssemblyReference.cache

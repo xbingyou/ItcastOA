@@ -16,6 +16,19 @@
     <Property Name="SORT" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="USERINFO" EntityType="Self.USERINFO" />
+    <EntitySet Name="USERINFO" EntityType="Model.USERINFO" />
+    <EntitySet Name="ROLEINFO" EntityType="Model.ROLEINFO" />
   </EntityContainer>
+  <EntityType Name="ROLEINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="ROLENAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="DELFLAG" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="SUBTIME" Type="DateTime" />
+    <Property Name="REMARK" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MODIFIEDON" Type="DateTime" />
+    <Property Name="SORT" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

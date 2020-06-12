@@ -9,7 +9,7 @@ namespace CZBK.ItcastOA.WebApp.Controllers
 {
     public class LoginController : Controller
     {
-        IBLL.IUserInfoService UserInfoService { get; set; }
+        IBLL.IUserinfoService UserInfoService { get; set; }
         // GET: Login
         public ActionResult Index()
         {
@@ -37,7 +37,6 @@ namespace CZBK.ItcastOA.WebApp.Controllers
             }
             else
                 return Content("no:登录失败!!");
-
         }
         #endregion
 

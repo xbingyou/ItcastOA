@@ -4,7 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ROLEINFO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ROLENAME" Type="nvarchar2" MaxLength="32" />
+          <Property Name="DELFLAG" Type="number" Precision="38" Scale="0" />
+          <Property Name="SUBTIME" Type="date" />
+          <Property Name="REMARK" Type="nvarchar2" MaxLength="128" />
+          <Property Name="MODIFIEDON" Type="date" />
+          <Property Name="SORT" Type="nvarchar2" MaxLength="16" />
+        </EntityType>
         <EntityType Name="USERINFO">
           <Key>
             <PropertyRef Name="ID" />
@@ -21,10 +33,10 @@
           <Property Name="SORT" Type="nvarchar2" MaxLength="32" />
         </EntityType>
         <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ROLEINFO" EntityType="Self.ROLEINFO" Schema="MYUSER" store:Type="Tables" />
           <EntitySet Name="USERINFO" EntityType="Self.USERINFO" Schema="MYUSER" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -45,7 +57,20 @@
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="USERINFO" EntityType="Model.USERINFO" />
+          <EntitySet Name="ROLEINFO" EntityType="Model.ROLEINFO" />
         </EntityContainer>
+        <EntityType Name="ROLEINFO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ROLENAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="DELFLAG" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SUBTIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="MODIFIEDON" Type="DateTime" />
+          <Property Name="SORT" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -65,6 +90,19 @@
                 <ScalarProperty Name="MODIFIEDON" ColumnName="MODIFIEDON" />
                 <ScalarProperty Name="REMARK" ColumnName="REMARK" />
                 <ScalarProperty Name="SORT" ColumnName="SORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLEINFO">
+            <EntityTypeMapping TypeName="Model.ROLEINFO">
+              <MappingFragment StoreEntitySet="ROLEINFO">
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="MODIFIEDON" ColumnName="MODIFIEDON" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="SUBTIME" ColumnName="SUBTIME" />
+                <ScalarProperty Name="DELFLAG" ColumnName="DELFLAG" />
+                <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

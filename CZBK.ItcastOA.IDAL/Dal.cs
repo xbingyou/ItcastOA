@@ -10,7 +10,12 @@ namespace CZBK.ItcastOA.IDAL
 {
    
 	
-	public partial interface IUSERINFODAL :IBaseDal<USERINFO>
+	public partial interface IRoleinfoDal :IBaseDal<ROLEINFO>
+    {
+      
+    }
+	
+	public partial interface IUserinfoDal :IBaseDal<USERINFO>
     {
       
     }

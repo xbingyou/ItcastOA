@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ROLEINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ROLENAME" Type="nvarchar2" MaxLength="32" />
+    <Property Name="DELFLAG" Type="number" Precision="38" Scale="0" />
+    <Property Name="SUBTIME" Type="date" />
+    <Property Name="REMARK" Type="nvarchar2" MaxLength="128" />
+    <Property Name="MODIFIEDON" Type="date" />
+    <Property Name="SORT" Type="nvarchar2" MaxLength="16" />
+  </EntityType>
   <EntityType Name="USERINFO">
     <Key>
       <PropertyRef Name="ID" />
@@ -16,6 +28,7 @@
     <Property Name="SORT" Type="nvarchar2" MaxLength="32" />
   </EntityType>
   <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="ROLEINFO" EntityType="Self.ROLEINFO" Schema="MYUSER" store:Type="Tables" />
     <EntitySet Name="USERINFO" EntityType="Self.USERINFO" Schema="MYUSER" store:Type="Tables" />
   </EntityContainer>
 </Schema>

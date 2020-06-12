@@ -17,5 +17,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ROLEINFO">
+      <EntityTypeMapping TypeName="Model.ROLEINFO">
+        <MappingFragment StoreEntitySet="ROLEINFO">
+          <ScalarProperty Name="SORT" ColumnName="SORT" />
+          <ScalarProperty Name="MODIFIEDON" ColumnName="MODIFIEDON" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="SUBTIME" ColumnName="SUBTIME" />
+          <ScalarProperty Name="DELFLAG" ColumnName="DELFLAG" />
+          <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

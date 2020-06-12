@@ -9,12 +9,12 @@ using CZBK.ItcastOA.Model.EnumType;
 
 namespace CZBK.ItcastOA.BLL
 {
-    public class UserInfoService : BaseService<USERINFO>, IUserInfoService
+    public partial class UserinfoService : BaseService<USERINFO>, IUserinfoService
     {
-        public override void SetCurrentDal()
-        {
-            CurrentDal = this.CurrentDBSession.UserInfoDal;
-        }
+        //public override void SetCurrentDal()
+        //{
+        //    CurrentDal = this.CurrentDBSession.UserInfoDal;
+        //}
         //public void SetUserInfo(USERINFO userInfo)
         //{
         //    this.CurrentDBSession.UserInfoDal.AddEntity(userInfo);

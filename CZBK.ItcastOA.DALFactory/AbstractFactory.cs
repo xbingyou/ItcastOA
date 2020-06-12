@@ -12,7 +12,7 @@ namespace CZBK.ItcastOA.DALFactory
     /// <summary>
     /// 通过反射的形式创建类的实例
     /// </summary>
-    public class AbstractFactory
+    public partial class AbstractFactory
     {
         private static readonly string AssemblyPath = ConfigurationManager.AppSettings["AssemblyPath"];
         private static readonly string NameSpace = ConfigurationManager.AppSettings["NameSpace"];

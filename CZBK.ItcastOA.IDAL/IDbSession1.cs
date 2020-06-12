@@ -11,6 +11,10 @@ namespace CZBK.ItcastOA.IDAL
 {
 	public partial interface IDBSession
     {
-		IUSERINFODAL USERINFODAL{get;set;}
-	}
+
+	
+		IRoleinfoDal RoleinfoDal{get;set;}
+	
+		IUserinfoDal UserinfoDal{get;set;}
+	}	
 }

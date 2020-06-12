@@ -76,6 +76,9 @@
       <DependentUpon>OracleModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ROLEINFO.cs">
+      <DependentUpon>OracleModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="USERINFO.cs">
       <DependentUpon>OracleModel.tt</DependentUpon>
     </Compile>

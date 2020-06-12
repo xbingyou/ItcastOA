@@ -16,7 +16,7 @@ namespace CZBK.ItcastOA.DALFactory
     /// 所以数据会话层将业务层和数据层解耦
     /// 在数据会话层中提供一个方法：完成所有数据的保存。
     /// </summary>
-    public class DBSession : IDBSession
+    public partial class DBSession : IDBSession
     {
         public DbContext Db
         {

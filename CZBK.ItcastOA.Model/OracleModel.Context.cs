@@ -26,5 +26,6 @@ namespace CZBK.ItcastOA.Model
         }
     
         public virtual DbSet<USERINFO> USERINFO { get; set; }
+        public virtual DbSet<ROLEINFO> ROLEINFO { get; set; }
     }
 }

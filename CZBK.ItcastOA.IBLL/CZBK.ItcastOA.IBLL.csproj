@@ -42,7 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBaseService.cs" />
-    <Compile Include="IUserInfoService.cs" />
+    <Compile Include="IManager.cs">
+      <DependentUpon>IManager.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="IUserinfoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +59,15 @@
       <Project>{436d3060-b250-4001-b5a4-26684b07f27b}</Project>
       <Name>CZBK.ItcastOA.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IManager.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IManager.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
