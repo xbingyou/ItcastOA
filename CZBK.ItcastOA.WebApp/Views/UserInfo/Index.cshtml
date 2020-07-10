@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>用户管理</title>
     <link href="~/Content/themes/default/easyui.css" rel="stylesheet" />
     <link href="~/Content/themes/icon.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.7.1.min.js"></script>
@@ -56,7 +56,13 @@
 					{ field: 'ID', title: '编号', width: 80 },
                     { field: 'UNAME', title: '姓名', width: 120 },
                     { field: 'UPWD', title: '密码', width: 120 },
-                    { field: 'REMARK', title: '备注', width: 120 }
+                    { field: 'REMARK', title: '备注', width: 120 },
+                    {
+                        field: 'SUBTIME', title: '时间', width: 80, align: 'right',
+                        formatter: function (value, row, index) {
+                            return (eval(value.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-M-d");
+                        }
+                    }
                 ]],
                 toolbar: [{
                     id: 'btnDelete',

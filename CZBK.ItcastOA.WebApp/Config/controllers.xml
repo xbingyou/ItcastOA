@@ -6,4 +6,7 @@
   <object type="CZBK.ItcastOA.WebApp.Controllers.LoginController, CZBK.ItcastOA.WebApp" singleton="false" >
     <property name="UserInfoService" ref="UserInfoService" />
   </object>
+  <object type="CZBK.ItcastOA.WebApp.Controllers.RoleInfoController, CZBK.ItcastOA.WebApp" singleton="false" >
+    <property name="RoleInfoService" ref="RoleInfoService" />
+  </object>
 </objects>
