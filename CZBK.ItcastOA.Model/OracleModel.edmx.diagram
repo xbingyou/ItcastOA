@@ -7,6 +7,14 @@
       <Diagram DiagramId="247753576371406f8bea32d02accef29" Name="Diagram1">
         <EntityTypeShape EntityType="Model.USERINFO" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ROLEINFO" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.ACTIONINFO" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Model.DEPARTMENT" Width="1.5" PointX="2.75" PointY="4.75" />
+        <AssociationConnector Association="Model.FOREUSERID" />
+        <AssociationConnector Association="Model.FOREDEPID" />
+        <AssociationConnector Association="Model.FOREUSERROLEID" />
+        <EntityTypeShape EntityType="Model.R_USERINFO_ACTIONINFO" Width="1.5" PointX="8" PointY="3.75" />
+        <AssociationConnector Association="Model.FOREACTID" />
+        <AssociationConnector Association="Model.FOREUSID" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

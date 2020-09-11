@@ -360,7 +360,7 @@
             </table>
         }
     </div>
-        <!--------------添加数据---------------------->
+    <!--------------添加数据---------------------->
     <div id="editDiv">
         @using (Ajax.BeginForm("EditUserInfo", "UserInfo", new { }, new AjaxOptions() { HttpMethod = "post", OnSuccess = "afterEdit" }, new { id = "editForm" }))
         {
@@ -374,6 +374,14 @@
                 <tr><td>排序</td><td><input type="text" name="SORT" id="txtSort" /></td></tr>
             </table>
         }
+    </div>
+    <!-------------------为用户分配角色---------------------->
+    <div id="setUsrRoleDiv">
+        <iframe id="setUserRoleFrame" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+    <!--------------为用户分配权限------------------->
+    <div id="setUsrActionDiv">
+        <iframe id="setUserActionFrame" width="100%" height="100%" frameborder="0"></iframe>
     </div>
 </body>
 </html>

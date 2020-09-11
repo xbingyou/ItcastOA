@@ -13,6 +13,12 @@ namespace CZBK.ItcastOA.IDAL
     {
 
 	
+		IActioninfoDal ActioninfoDal{get;set;}
+	
+		IDepartmentDal DepartmentDal{get;set;}
+	
+		IR_userinfo_actioninfoDal R_userinfo_actioninfoDal{get;set;}
+	
 		IRoleinfoDal RoleinfoDal{get;set;}
 	
 		IUserinfoDal UserinfoDal{get;set;}

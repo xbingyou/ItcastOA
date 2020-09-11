@@ -10,5 +10,6 @@ namespace CZBK.ItcastOA.IBLL
     public partial interface IUserinfoService:IBaseService<USERINFO>
     {
         bool DeleteEntities(List<decimal> list);
+        bool SetUserActionInfo(int actionId, int userId, int isPass);
     }
 }

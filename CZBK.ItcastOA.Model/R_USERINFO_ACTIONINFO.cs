@@ -12,15 +12,12 @@ namespace CZBK.ItcastOA.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ROLEINFO
+    public partial class R_USERINFO_ACTIONINFO
     {
         public decimal ID { get; set; }
-        public string ROLENAME { get; set; }
-        public Nullable<decimal> DELFLAG { get; set; }
-        public Nullable<System.DateTime> SUBTIME { get; set; }
-        public string REMARK { get; set; }
-        public Nullable<System.DateTime> MODIFIEDON { get; set; }
-        public string SORT { get; set; }
+        public decimal USERINFOID { get; set; }
+        public decimal ACTIONINFOID { get; set; }
+        public Nullable<decimal> ISPASS { get; set; }
     
         public virtual ACTIONINFO ACTIONINFO { get; set; }
         public virtual USERINFO USERINFO { get; set; }

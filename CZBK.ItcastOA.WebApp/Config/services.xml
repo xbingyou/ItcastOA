@@ -4,4 +4,8 @@
   </object>
   <object type="CZBK.ItcastOA.BLL.RoleinfoService, CZBK.ItcastOA.BLL" singleton="false" name="RoleInfoService" >
   </object>
+  <object type="CZBK.ItcastOA.BLL.ActioninfoService, CZBK.ItcastOA.BLL" singleton="false" name="ActionInfoService" >
+  </object>
+  <object type="CZBK.ItcastOA.BLL.R_userInfo_actionInfoService, CZBK.ItcastOA.BLL" singleton="false" name="R_UserInfo_ActionInfoService" >
+  </object>
 </objects>

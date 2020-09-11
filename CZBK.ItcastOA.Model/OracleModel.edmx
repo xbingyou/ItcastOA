@@ -5,6 +5,46 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACTIONINFO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SUBTIME" Type="date" />
+          <Property Name="DELFLAG" Type="number" Precision="38" Scale="0" />
+          <Property Name="MODIFIEDON" Type="varchar2" MaxLength="16" />
+          <Property Name="REMARK" Type="varchar2" MaxLength="256" />
+          <Property Name="URL" Type="varchar2" MaxLength="64" />
+          <Property Name="HTTPMETHOD" Type="varchar2" MaxLength="64" />
+          <Property Name="ACTIONMETHODNAME" Type="varchar2" MaxLength="64" />
+          <Property Name="CONTROLLERNAME" Type="varchar2" MaxLength="64" />
+          <Property Name="ACTIONINFONAME" Type="varchar2" MaxLength="64" />
+          <Property Name="SORT" Type="varchar2" MaxLength="16" />
+          <Property Name="ACTIONTYPEENUM" Type="number" Precision="38" Scale="0" />
+          <Property Name="MENUICON" Type="varchar2" MaxLength="64" />
+          <Property Name="ICONWIDTH" Type="number" Precision="38" Scale="0" />
+          <Property Name="ICONHEIGHT" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DEPNAME" Type="nvarchar2" MaxLength="64" />
+          <Property Name="PARENTID" Type="number" Precision="38" Scale="0" />
+          <Property Name="TREEPATH" Type="nvarchar2" MaxLength="64" />
+          <Property Name="LEVELN" Type="number" Precision="38" Scale="0" />
+          <Property Name="ISLEAF" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="R_USERINFO_ACTIONINFO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERINFOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACTIONINFOID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ISPASS" Type="number" Precision="38" Scale="0" />
+        </EntityType>
         <EntityType Name="ROLEINFO">
           <Key>
             <PropertyRef Name="ID" />
@@ -32,9 +72,92 @@
           <Property Name="REMARK" Type="nvarchar2" MaxLength="256" />
           <Property Name="SORT" Type="nvarchar2" MaxLength="32" />
         </EntityType>
+        <Association Name="FOREACTID">
+          <End Role="ACTIONINFO" Type="Self.ACTIONINFO" Multiplicity="1" />
+          <End Role="R_USERINFO_ACTIONINFO" Type="Self.R_USERINFO_ACTIONINFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACTIONINFO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_USERINFO_ACTIONINFO">
+              <PropertyRef Name="ACTIONINFOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FOREDEPID">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="USERINFO" Type="Self.USERINFO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USERINFO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FOREUSERID">
+          <End Role="ACTIONINFO" Type="Self.ACTIONINFO" Multiplicity="1" />
+          <End Role="ROLEINFO" Type="Self.ROLEINFO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ACTIONINFO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROLEINFO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FOREUSERROLEID">
+          <End Role="ROLEINFO" Type="Self.ROLEINFO" Multiplicity="1" />
+          <End Role="USERINFO" Type="Self.USERINFO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ROLEINFO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USERINFO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FOREUSID">
+          <End Role="USERINFO" Type="Self.USERINFO" Multiplicity="1" />
+          <End Role="R_USERINFO_ACTIONINFO" Type="Self.R_USERINFO_ACTIONINFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERINFO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_USERINFO_ACTIONINFO">
+              <PropertyRef Name="USERINFOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ACTIONINFO" EntityType="Self.ACTIONINFO" Schema="MYUSER" store:Type="Tables" />
+          <EntitySet Name="DEPARTMENT" EntityType="Self.DEPARTMENT" Schema="MYUSER" store:Type="Tables" />
+          <EntitySet Name="R_USERINFO_ACTIONINFO" EntityType="Self.R_USERINFO_ACTIONINFO" Schema="MYUSER" store:Type="Tables" />
           <EntitySet Name="ROLEINFO" EntityType="Self.ROLEINFO" Schema="MYUSER" store:Type="Tables" />
           <EntitySet Name="USERINFO" EntityType="Self.USERINFO" Schema="MYUSER" store:Type="Tables" />
+          <AssociationSet Name="FOREACTID" Association="Self.FOREACTID">
+            <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
+            <End Role="R_USERINFO_ACTIONINFO" EntitySet="R_USERINFO_ACTIONINFO" />
+          </AssociationSet>
+          <AssociationSet Name="FOREDEPID" Association="Self.FOREDEPID">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="USERINFO" EntitySet="USERINFO" />
+          </AssociationSet>
+          <AssociationSet Name="FOREUSERID" Association="Self.FOREUSERID">
+            <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
+            <End Role="ROLEINFO" EntitySet="ROLEINFO" />
+          </AssociationSet>
+          <AssociationSet Name="FOREUSERROLEID" Association="Self.FOREUSERROLEID">
+            <End Role="ROLEINFO" EntitySet="ROLEINFO" />
+            <End Role="USERINFO" EntitySet="USERINFO" />
+          </AssociationSet>
+          <AssociationSet Name="FOREUSID" Association="Self.FOREUSID">
+            <End Role="USERINFO" EntitySet="USERINFO" />
+            <End Role="R_USERINFO_ACTIONINFO" EntitySet="R_USERINFO_ACTIONINFO" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -54,10 +177,36 @@
           <Property Name="MODIFIEDON" Type="DateTime" />
           <Property Name="REMARK" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="SORT" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DEPARTMENT" Relationship="Model.FOREDEPID" FromRole="USERINFO" ToRole="DEPARTMENT" />
+          <NavigationProperty Name="ROLEINFO" Relationship="Model.FOREUSERROLEID" FromRole="USERINFO" ToRole="ROLEINFO" />
+          <NavigationProperty Name="R_USERINFO_ACTIONINFO" Relationship="Model.FOREUSID" FromRole="USERINFO" ToRole="R_USERINFO_ACTIONINFO" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="USERINFO" EntityType="Model.USERINFO" />
           <EntitySet Name="ROLEINFO" EntityType="Model.ROLEINFO" />
+          <EntitySet Name="ACTIONINFO" EntityType="Model.ACTIONINFO" />
+          <EntitySet Name="DEPARTMENT" EntityType="Model.DEPARTMENT" />
+          <AssociationSet Name="FOREUSERID" Association="Model.FOREUSERID">
+            <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
+            <End Role="ROLEINFO" EntitySet="ROLEINFO" />
+          </AssociationSet>
+          <AssociationSet Name="FOREDEPID" Association="Model.FOREDEPID">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="USERINFO" EntitySet="USERINFO" />
+          </AssociationSet>
+          <AssociationSet Name="FOREUSERROLEID" Association="Model.FOREUSERROLEID">
+            <End Role="ROLEINFO" EntitySet="ROLEINFO" />
+            <End Role="USERINFO" EntitySet="USERINFO" />
+          </AssociationSet>
+          <EntitySet Name="R_USERINFO_ACTIONINFO" EntityType="Model.R_USERINFO_ACTIONINFO" />
+          <AssociationSet Name="FOREACTID" Association="Model.FOREACTID">
+            <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
+            <End Role="R_USERINFO_ACTIONINFO" EntitySet="R_USERINFO_ACTIONINFO" />
+          </AssociationSet>
+          <AssociationSet Name="FOREUSID" Association="Model.FOREUSID">
+            <End Role="USERINFO" EntitySet="USERINFO" />
+            <End Role="R_USERINFO_ACTIONINFO" EntitySet="R_USERINFO_ACTIONINFO" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ROLEINFO">
           <Key>
@@ -70,7 +219,114 @@
           <Property Name="REMARK" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="MODIFIEDON" Type="DateTime" />
           <Property Name="SORT" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ACTIONINFO" Relationship="Model.FOREUSERID" FromRole="ROLEINFO" ToRole="ACTIONINFO" />
+          <NavigationProperty Name="USERINFO" Relationship="Model.FOREUSERROLEID" FromRole="ROLEINFO" ToRole="USERINFO" />
         </EntityType>
+        <EntityType Name="ACTIONINFO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="SUBTIME" Type="DateTime" />
+          <Property Name="DELFLAG" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MODIFIEDON" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="REMARK" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="HTTPMETHOD" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIONMETHODNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CONTROLLERNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIONINFONAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SORT" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIONTYPEENUM" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MENUICON" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ICONWIDTH" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ICONHEIGHT" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="ROLEINFO" Relationship="Model.FOREUSERID" FromRole="ACTIONINFO" ToRole="ROLEINFO" />
+          <NavigationProperty Name="R_USERINFO_ACTIONINFO" Relationship="Model.FOREACTID" FromRole="ACTIONINFO" ToRole="R_USERINFO_ACTIONINFO" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="DEPNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PARENTID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TREEPATH" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="LEVELN" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ISLEAF" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="USERINFO" Relationship="Model.FOREDEPID" FromRole="DEPARTMENT" ToRole="USERINFO" />
+        </EntityType>
+        <Association Name="FOREUSERID">
+          <End Type="Model.ACTIONINFO" Role="ACTIONINFO" Multiplicity="1" />
+          <End Type="Model.ROLEINFO" Role="ROLEINFO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ACTIONINFO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROLEINFO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FOREDEPID">
+          <End Type="Model.DEPARTMENT" Role="DEPARTMENT" Multiplicity="1" />
+          <End Type="Model.USERINFO" Role="USERINFO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USERINFO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FOREUSERROLEID">
+          <End Type="Model.ROLEINFO" Role="ROLEINFO" Multiplicity="1" />
+          <End Type="Model.USERINFO" Role="USERINFO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ROLEINFO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USERINFO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="R_USERINFO_ACTIONINFO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERINFOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ACTIONINFOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ISPASS" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="ACTIONINFO" Relationship="Model.FOREACTID" FromRole="R_USERINFO_ACTIONINFO" ToRole="ACTIONINFO" />
+          <NavigationProperty Name="USERINFO" Relationship="Model.FOREUSID" FromRole="R_USERINFO_ACTIONINFO" ToRole="USERINFO" />
+        </EntityType>
+        <Association Name="FOREACTID">
+          <End Type="Model.ACTIONINFO" Role="ACTIONINFO" Multiplicity="1" />
+          <End Type="Model.R_USERINFO_ACTIONINFO" Role="R_USERINFO_ACTIONINFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACTIONINFO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_USERINFO_ACTIONINFO">
+              <PropertyRef Name="ACTIONINFOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FOREUSID">
+          <End Type="Model.USERINFO" Role="USERINFO" Multiplicity="1" />
+          <End Type="Model.R_USERINFO_ACTIONINFO" Role="R_USERINFO_ACTIONINFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERINFO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="R_USERINFO_ACTIONINFO">
+              <PropertyRef Name="USERINFOID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -102,6 +358,49 @@
                 <ScalarProperty Name="SUBTIME" ColumnName="SUBTIME" />
                 <ScalarProperty Name="DELFLAG" ColumnName="DELFLAG" />
                 <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACTIONINFO">
+            <EntityTypeMapping TypeName="Model.ACTIONINFO">
+              <MappingFragment StoreEntitySet="ACTIONINFO">
+                <ScalarProperty Name="ICONHEIGHT" ColumnName="ICONHEIGHT" />
+                <ScalarProperty Name="ICONWIDTH" ColumnName="ICONWIDTH" />
+                <ScalarProperty Name="MENUICON" ColumnName="MENUICON" />
+                <ScalarProperty Name="ACTIONTYPEENUM" ColumnName="ACTIONTYPEENUM" />
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="ACTIONINFONAME" ColumnName="ACTIONINFONAME" />
+                <ScalarProperty Name="CONTROLLERNAME" ColumnName="CONTROLLERNAME" />
+                <ScalarProperty Name="ACTIONMETHODNAME" ColumnName="ACTIONMETHODNAME" />
+                <ScalarProperty Name="HTTPMETHOD" ColumnName="HTTPMETHOD" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="MODIFIEDON" ColumnName="MODIFIEDON" />
+                <ScalarProperty Name="DELFLAG" ColumnName="DELFLAG" />
+                <ScalarProperty Name="SUBTIME" ColumnName="SUBTIME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTMENT">
+            <EntityTypeMapping TypeName="Model.DEPARTMENT">
+              <MappingFragment StoreEntitySet="DEPARTMENT">
+                <ScalarProperty Name="ISLEAF" ColumnName="ISLEAF" />
+                <ScalarProperty Name="LEVELN" ColumnName="LEVELN" />
+                <ScalarProperty Name="TREEPATH" ColumnName="TREEPATH" />
+                <ScalarProperty Name="PARENTID" ColumnName="PARENTID" />
+                <ScalarProperty Name="DEPNAME" ColumnName="DEPNAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R_USERINFO_ACTIONINFO">
+            <EntityTypeMapping TypeName="Model.R_USERINFO_ACTIONINFO">
+              <MappingFragment StoreEntitySet="R_USERINFO_ACTIONINFO">
+                <ScalarProperty Name="ISPASS" ColumnName="ISPASS" />
+                <ScalarProperty Name="ACTIONINFOID" ColumnName="ACTIONINFOID" />
+                <ScalarProperty Name="USERINFOID" ColumnName="USERINFOID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

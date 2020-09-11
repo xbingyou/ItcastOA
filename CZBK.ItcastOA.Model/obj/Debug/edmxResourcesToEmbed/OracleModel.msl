@@ -30,5 +30,48 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ACTIONINFO">
+      <EntityTypeMapping TypeName="Model.ACTIONINFO">
+        <MappingFragment StoreEntitySet="ACTIONINFO">
+          <ScalarProperty Name="ICONHEIGHT" ColumnName="ICONHEIGHT" />
+          <ScalarProperty Name="ICONWIDTH" ColumnName="ICONWIDTH" />
+          <ScalarProperty Name="MENUICON" ColumnName="MENUICON" />
+          <ScalarProperty Name="ACTIONTYPEENUM" ColumnName="ACTIONTYPEENUM" />
+          <ScalarProperty Name="SORT" ColumnName="SORT" />
+          <ScalarProperty Name="ACTIONINFONAME" ColumnName="ACTIONINFONAME" />
+          <ScalarProperty Name="CONTROLLERNAME" ColumnName="CONTROLLERNAME" />
+          <ScalarProperty Name="ACTIONMETHODNAME" ColumnName="ACTIONMETHODNAME" />
+          <ScalarProperty Name="HTTPMETHOD" ColumnName="HTTPMETHOD" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="MODIFIEDON" ColumnName="MODIFIEDON" />
+          <ScalarProperty Name="DELFLAG" ColumnName="DELFLAG" />
+          <ScalarProperty Name="SUBTIME" ColumnName="SUBTIME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTMENT">
+      <EntityTypeMapping TypeName="Model.DEPARTMENT">
+        <MappingFragment StoreEntitySet="DEPARTMENT">
+          <ScalarProperty Name="ISLEAF" ColumnName="ISLEAF" />
+          <ScalarProperty Name="LEVELN" ColumnName="LEVELN" />
+          <ScalarProperty Name="TREEPATH" ColumnName="TREEPATH" />
+          <ScalarProperty Name="PARENTID" ColumnName="PARENTID" />
+          <ScalarProperty Name="DEPNAME" ColumnName="DEPNAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_USERINFO_ACTIONINFO">
+      <EntityTypeMapping TypeName="Model.R_USERINFO_ACTIONINFO">
+        <MappingFragment StoreEntitySet="R_USERINFO_ACTIONINFO">
+          <ScalarProperty Name="ISPASS" ColumnName="ISPASS" />
+          <ScalarProperty Name="ACTIONINFOID" ColumnName="ACTIONINFOID" />
+          <ScalarProperty Name="USERINFOID" ColumnName="USERINFOID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

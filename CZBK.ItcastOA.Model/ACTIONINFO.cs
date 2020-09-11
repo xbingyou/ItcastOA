@@ -12,26 +12,30 @@ namespace CZBK.ItcastOA.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class USERINFO
+    public partial class ACTIONINFO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public USERINFO()
+        public ACTIONINFO()
         {
             this.R_USERINFO_ACTIONINFO = new HashSet<R_USERINFO_ACTIONINFO>();
         }
     
         public decimal ID { get; set; }
-        public string NAME { get; set; }
-        public Nullable<decimal> AGE { get; set; }
-        public string UNAME { get; set; }
-        public string UPWD { get; set; }
         public Nullable<System.DateTime> SUBTIME { get; set; }
         public Nullable<decimal> DELFLAG { get; set; }
-        public Nullable<System.DateTime> MODIFIEDON { get; set; }
+        public string MODIFIEDON { get; set; }
         public string REMARK { get; set; }
+        public string URL { get; set; }
+        public string HTTPMETHOD { get; set; }
+        public string ACTIONMETHODNAME { get; set; }
+        public string CONTROLLERNAME { get; set; }
+        public string ACTIONINFONAME { get; set; }
         public string SORT { get; set; }
+        public Nullable<decimal> ACTIONTYPEENUM { get; set; }
+        public string MENUICON { get; set; }
+        public Nullable<decimal> ICONWIDTH { get; set; }
+        public Nullable<decimal> ICONHEIGHT { get; set; }
     
-        public virtual DEPARTMENT DEPARTMENT { get; set; }
         public virtual ROLEINFO ROLEINFO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<R_USERINFO_ACTIONINFO> R_USERINFO_ACTIONINFO { get; set; }

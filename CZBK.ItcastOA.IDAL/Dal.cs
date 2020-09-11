@@ -10,6 +10,21 @@ namespace CZBK.ItcastOA.IDAL
 {
    
 	
+	public partial interface IActioninfoDal :IBaseDal<ACTIONINFO>
+    {
+      
+    }
+	
+	public partial interface IDepartmentDal :IBaseDal<DEPARTMENT>
+    {
+      
+    }
+	
+	public partial interface IR_userinfo_actioninfoDal :IBaseDal<R_USERINFO_ACTIONINFO>
+    {
+      
+    }
+	
 	public partial interface IRoleinfoDal :IBaseDal<ROLEINFO>
     {
       

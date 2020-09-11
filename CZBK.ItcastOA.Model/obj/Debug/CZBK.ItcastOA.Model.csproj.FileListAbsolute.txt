@@ -24,4 +24,6 @@ F:\GIT\ItcastOA\CZBK.ItcastOA.Model\obj\Debug\CZBK.ItcastOA.Model.csproj.CoreCom
 F:\GIT\ItcastOA\CZBK.ItcastOA.Model\obj\Debug\CZBK.ItcastOA.Model.csproj.CopyComplete
 F:\GIT\ItcastOA\CZBK.ItcastOA.Model\obj\Debug\CZBK.ItcastOA.Model.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.Model\obj\Debug\CZBK.ItcastOA.Model.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.Model\bin\Debug\Newtonsoft.Json.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.Model\bin\Debug\Newtonsoft.Json.xml
 F:\GIT\ItcastOA\CZBK.ItcastOA.Model\obj\Debug\CZBK.ItcastOA.Model.csprojAssemblyReference.cache

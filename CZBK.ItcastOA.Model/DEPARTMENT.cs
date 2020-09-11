@@ -12,17 +12,15 @@ namespace CZBK.ItcastOA.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ROLEINFO
+    public partial class DEPARTMENT
     {
         public decimal ID { get; set; }
-        public string ROLENAME { get; set; }
-        public Nullable<decimal> DELFLAG { get; set; }
-        public Nullable<System.DateTime> SUBTIME { get; set; }
-        public string REMARK { get; set; }
-        public Nullable<System.DateTime> MODIFIEDON { get; set; }
-        public string SORT { get; set; }
+        public string DEPNAME { get; set; }
+        public Nullable<decimal> PARENTID { get; set; }
+        public string TREEPATH { get; set; }
+        public Nullable<decimal> LEVELN { get; set; }
+        public Nullable<decimal> ISLEAF { get; set; }
     
-        public virtual ACTIONINFO ACTIONINFO { get; set; }
         public virtual USERINFO USERINFO { get; set; }
     }
 }

@@ -506,6 +506,7 @@
     <Content Include="Content\lib\ligerUI\skins\Silvery\images\layout\tabs-item-over-bg.gif" />
     <Content Include="Content\lib\ligerUI\skins\Silvery\images\layout\tabs-item-right-bg.gif" />
     <Content Include="Content\lib\ligerUI\skins\Silvery\images\layout\tabs-tools.gif" />
+    <Content Include="Content\tableStyle.css" />
     <Content Include="Content\themes\base\images\ui-anim_basic_16x16.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -868,6 +869,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\RoleInfo\Index.cshtml" />
     <Content Include="Views\RoleInfo\ShowAddInfo.cshtml" />
+    <Content Include="Views\UserInfo\ShowUserAction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

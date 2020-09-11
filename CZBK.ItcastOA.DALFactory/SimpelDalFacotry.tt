@@ -31,18 +31,15 @@ namespace CZBK.ItcastOA.DALFactory
 {
     public partial class AbstractFactory
     {
-      
-   
+
 <#
 foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
 {    
 #>		
 	    public static I<#=string.Concat(entity.Name.First<char>().ToString().ToUpper(),entity.Name.ToLower().Substring(1))#>Dal Create<#=string.Concat(entity.Name.First<char>().ToString().ToUpper(),entity.Name.ToLower().Substring(1))#>Dal()
         {
-
 		 string fullClassName = NameSpace + ".<#=string.Concat(entity.Name.First<char>().ToString().ToUpper(),entity.Name.ToLower().Substring(1))#>Dal";
           return CreateInstance(fullClassName) as I<#=string.Concat(entity.Name.First<char>().ToString().ToUpper(),entity.Name.ToLower().Substring(1))#>Dal;
-
         }
 <#}#>
 	}

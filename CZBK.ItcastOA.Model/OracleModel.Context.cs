@@ -27,5 +27,8 @@ namespace CZBK.ItcastOA.Model
     
         public virtual DbSet<USERINFO> USERINFO { get; set; }
         public virtual DbSet<ROLEINFO> ROLEINFO { get; set; }
+        public virtual DbSet<ACTIONINFO> ACTIONINFO { get; set; }
+        public virtual DbSet<DEPARTMENT> DEPARTMENT { get; set; }
+        public virtual DbSet<R_USERINFO_ACTIONINFO> R_USERINFO_ACTIONINFO { get; set; }
     }
 }

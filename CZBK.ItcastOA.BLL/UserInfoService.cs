@@ -36,5 +36,32 @@ namespace CZBK.ItcastOA.BLL
             }
             return this.CurrentDBSession.SaveChanges();
         }
+        /// <summary>
+        /// 完成用户权限的分配
+        /// </summary>
+        /// <param name="actionId"></param>
+        /// <param name="userId"></param>
+        /// <param name="isPass"></param>
+        /// <returns></returns>
+        public bool SetUserActionInfo(int actionId, int userId, int isPass)
+        {
+            //判断userId以前是否有了该actionId，如果有了只需要更改isPass状态，否则插入
+            var r_userinfo_actioninfo = this.CurrentDBSession.R_userinfo_actioninfoDal.LoadEntities(
+                a => a.ACTIONINFOID == actionId && a.USERINFOID == userId).FirstOrDefault();
+            if (r_userinfo_actioninfo == null)
+            {
+                R_USERINFO_ACTIONINFO userInfoActionInfo = new R_USERINFO_ACTIONINFO();
+                userInfoActionInfo.ACTIONINFOID = actionId;
+                userInfoActionInfo.USERINFOID = userId;
+                userInfoActionInfo.ISPASS = isPass;
+                this.CurrentDBSession.R_userinfo_actioninfoDal.AddEntity(userInfoActionInfo);
+            }
+            else
+            {
+                r_userinfo_actioninfo.ISPASS = isPass;
+                this.CurrentDBSession.R_userinfo_actioninfoDal.EditEntity(r_userinfo_actioninfo);
+            }
+            return this.CurrentDBSession.SaveChanges();
+        }
     }
 }
