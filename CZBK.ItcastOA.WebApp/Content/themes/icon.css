@@ -1,3 +1,11 @@
+
+.icon-menu-user {
+    background: url('icons/menu_user.png') no-repeat center center;
+}
+.icon-menu-site {
+    background: url('icons/menu_site.png') no-repeat center center;
+}
+
 .icon-blank{
 	background:url('icons/blank.gif') no-repeat center center;
 }

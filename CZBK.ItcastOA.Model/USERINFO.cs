@@ -18,6 +18,8 @@ namespace CZBK.ItcastOA.Model
         public USERINFO()
         {
             this.R_USERINFO_ACTIONINFO = new HashSet<R_USERINFO_ACTIONINFO>();
+            this.R_USERINFO_DEPARTMENT = new HashSet<R_USERINFO_DEPARTMENT>();
+            this.R_USERINFO_ROLEINFO = new HashSet<R_USERINFO_ROLEINFO>();
         }
     
         public decimal ID { get; set; }
@@ -31,9 +33,14 @@ namespace CZBK.ItcastOA.Model
         public string REMARK { get; set; }
         public string SORT { get; set; }
     
-        public virtual DEPARTMENT DEPARTMENT { get; set; }
-        public virtual ROLEINFO ROLEINFO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    	[Newtonsoft.Json.JsonIgnore]
         public virtual ICollection<R_USERINFO_ACTIONINFO> R_USERINFO_ACTIONINFO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    	[Newtonsoft.Json.JsonIgnore]
+        public virtual ICollection<R_USERINFO_DEPARTMENT> R_USERINFO_DEPARTMENT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    	[Newtonsoft.Json.JsonIgnore]
+        public virtual ICollection<R_USERINFO_ROLEINFO> R_USERINFO_ROLEINFO { get; set; }
     }
 }

@@ -51,7 +51,7 @@ namespace CZBK.ItcastOA.Common
         /// </summary>
         public static object Get(string key)
         {
-            return mc.Get(key);
+                return mc.Get(key);
         }
         /// <summary>
         /// 删除数据

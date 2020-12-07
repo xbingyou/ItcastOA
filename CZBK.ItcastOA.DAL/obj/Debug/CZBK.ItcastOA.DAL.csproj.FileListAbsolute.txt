@@ -26,3 +26,5 @@ F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.csproj.CoreCompile
 F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.csproj.CopyComplete
 F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\obj\Debug\CZBK.ItcastOA.DAL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\Newtonsoft.Json.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.DAL\bin\Debug\Newtonsoft.Json.xml

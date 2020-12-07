@@ -25,10 +25,14 @@ namespace CZBK.ItcastOA.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<USERINFO> USERINFO { get; set; }
-        public virtual DbSet<ROLEINFO> ROLEINFO { get; set; }
         public virtual DbSet<ACTIONINFO> ACTIONINFO { get; set; }
         public virtual DbSet<DEPARTMENT> DEPARTMENT { get; set; }
+        public virtual DbSet<R_DEPARTMENT_ACTIONINFO> R_DEPARTMENT_ACTIONINFO { get; set; }
+        public virtual DbSet<R_ROLEINFO_ACTIONINFO> R_ROLEINFO_ACTIONINFO { get; set; }
         public virtual DbSet<R_USERINFO_ACTIONINFO> R_USERINFO_ACTIONINFO { get; set; }
+        public virtual DbSet<R_USERINFO_DEPARTMENT> R_USERINFO_DEPARTMENT { get; set; }
+        public virtual DbSet<R_USERINFO_ROLEINFO> R_USERINFO_ROLEINFO { get; set; }
+        public virtual DbSet<ROLEINFO> ROLEINFO { get; set; }
+        public virtual DbSet<USERINFO> USERINFO { get; set; }
     }
 }

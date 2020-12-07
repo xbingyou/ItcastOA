@@ -66,10 +66,13 @@
     <Compile Include="ACTIONINFO.cs">
       <DependentUpon>OracleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ChartModel\Series.cs" />
     <Compile Include="DEPARTMENT.cs">
       <DependentUpon>OracleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EnumType\ActionTypeEnum.cs" />
     <Compile Include="EnumType\DeleteEnumType.cs" />
+    <Compile Include="EqualityComparer.cs" />
     <Compile Include="OracleModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,7 +92,19 @@
     <Compile Include="ROLEINFO.cs">
       <DependentUpon>OracleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="R_DEPARTMENT_ACTIONINFO.cs">
+      <DependentUpon>OracleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R_ROLEINFO_ACTIONINFO.cs">
+      <DependentUpon>OracleModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="R_USERINFO_ACTIONINFO.cs">
+      <DependentUpon>OracleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R_USERINFO_DEPARTMENT.cs">
+      <DependentUpon>OracleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R_USERINFO_ROLEINFO.cs">
       <DependentUpon>OracleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USERINFO.cs">

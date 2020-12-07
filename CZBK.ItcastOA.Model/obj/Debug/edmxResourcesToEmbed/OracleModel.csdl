@@ -1,64 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="USERINFO">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="AGE" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="UNAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="UPWD" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="SUBTIME" Type="DateTime" />
-    <Property Name="DELFLAG" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="MODIFIEDON" Type="DateTime" />
-    <Property Name="REMARK" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="SORT" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="DEPARTMENT" Relationship="Model.FOREDEPID" FromRole="USERINFO" ToRole="DEPARTMENT" />
-    <NavigationProperty Name="ROLEINFO" Relationship="Model.FOREUSERROLEID" FromRole="USERINFO" ToRole="ROLEINFO" />
-    <NavigationProperty Name="R_USERINFO_ACTIONINFO" Relationship="Model.FOREUSID" FromRole="USERINFO" ToRole="R_USERINFO_ACTIONINFO" />
-  </EntityType>
   <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="USERINFO" EntityType="Model.USERINFO" />
-    <EntitySet Name="ROLEINFO" EntityType="Model.ROLEINFO" />
     <EntitySet Name="ACTIONINFO" EntityType="Model.ACTIONINFO" />
     <EntitySet Name="DEPARTMENT" EntityType="Model.DEPARTMENT" />
-    <AssociationSet Name="FOREUSERID" Association="Model.FOREUSERID">
-      <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
-      <End Role="ROLEINFO" EntitySet="ROLEINFO" />
-    </AssociationSet>
-    <AssociationSet Name="FOREDEPID" Association="Model.FOREDEPID">
-      <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
-      <End Role="USERINFO" EntitySet="USERINFO" />
-    </AssociationSet>
-    <AssociationSet Name="FOREUSERROLEID" Association="Model.FOREUSERROLEID">
-      <End Role="ROLEINFO" EntitySet="ROLEINFO" />
-      <End Role="USERINFO" EntitySet="USERINFO" />
-    </AssociationSet>
+    <EntitySet Name="R_DEPARTMENT_ACTIONINFO" EntityType="Model.R_DEPARTMENT_ACTIONINFO" />
+    <EntitySet Name="R_ROLEINFO_ACTIONINFO" EntityType="Model.R_ROLEINFO_ACTIONINFO" />
     <EntitySet Name="R_USERINFO_ACTIONINFO" EntityType="Model.R_USERINFO_ACTIONINFO" />
-    <AssociationSet Name="FOREACTID" Association="Model.FOREACTID">
+    <EntitySet Name="R_USERINFO_DEPARTMENT" EntityType="Model.R_USERINFO_DEPARTMENT" />
+    <EntitySet Name="R_USERINFO_ROLEINFO" EntityType="Model.R_USERINFO_ROLEINFO" />
+    <EntitySet Name="ROLEINFO" EntityType="Model.ROLEINFO" />
+    <EntitySet Name="USERINFO" EntityType="Model.USERINFO" />
+    <AssociationSet Name="FORACTIDDA" Association="Model.FORACTIDDA">
+      <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
+      <End Role="R_DEPARTMENT_ACTIONINFO" EntitySet="R_DEPARTMENT_ACTIONINFO" />
+    </AssociationSet>
+    <AssociationSet Name="FORACTIDRA" Association="Model.FORACTIDRA">
+      <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
+      <End Role="R_ROLEINFO_ACTIONINFO" EntitySet="R_ROLEINFO_ACTIONINFO" />
+    </AssociationSet>
+    <AssociationSet Name="FORACTIDUA" Association="Model.FORACTIDUA">
       <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
       <End Role="R_USERINFO_ACTIONINFO" EntitySet="R_USERINFO_ACTIONINFO" />
     </AssociationSet>
-    <AssociationSet Name="FOREUSID" Association="Model.FOREUSID">
+    <AssociationSet Name="FORDEPIDDA" Association="Model.FORDEPIDDA">
+      <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+      <End Role="R_DEPARTMENT_ACTIONINFO" EntitySet="R_DEPARTMENT_ACTIONINFO" />
+    </AssociationSet>
+    <AssociationSet Name="FORDEPIDUD" Association="Model.FORDEPIDUD">
+      <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+      <End Role="R_USERINFO_DEPARTMENT" EntitySet="R_USERINFO_DEPARTMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FORROLEIDRA" Association="Model.FORROLEIDRA">
+      <End Role="ROLEINFO" EntitySet="ROLEINFO" />
+      <End Role="R_ROLEINFO_ACTIONINFO" EntitySet="R_ROLEINFO_ACTIONINFO" />
+    </AssociationSet>
+    <AssociationSet Name="FORUSERIDUA" Association="Model.FORUSERIDUA">
       <End Role="USERINFO" EntitySet="USERINFO" />
       <End Role="R_USERINFO_ACTIONINFO" EntitySet="R_USERINFO_ACTIONINFO" />
+    </AssociationSet>
+    <AssociationSet Name="FORUSERIDUD" Association="Model.FORUSERIDUD">
+      <End Role="USERINFO" EntitySet="USERINFO" />
+      <End Role="R_USERINFO_DEPARTMENT" EntitySet="R_USERINFO_DEPARTMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FORROLEIDUR" Association="Model.FORROLEIDUR">
+      <End Role="ROLEINFO" EntitySet="ROLEINFO" />
+      <End Role="R_USERINFO_ROLEINFO" EntitySet="R_USERINFO_ROLEINFO" />
+    </AssociationSet>
+    <AssociationSet Name="FORUSERIDUR" Association="Model.FORUSERIDUR">
+      <End Role="USERINFO" EntitySet="USERINFO" />
+      <End Role="R_USERINFO_ROLEINFO" EntitySet="R_USERINFO_ROLEINFO" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="ROLEINFO">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-    <Property Name="ROLENAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="DELFLAG" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="SUBTIME" Type="DateTime" />
-    <Property Name="REMARK" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="MODIFIEDON" Type="DateTime" />
-    <Property Name="SORT" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ACTIONINFO" Relationship="Model.FOREUSERID" FromRole="ROLEINFO" ToRole="ACTIONINFO" />
-    <NavigationProperty Name="USERINFO" Relationship="Model.FOREUSERROLEID" FromRole="ROLEINFO" ToRole="USERINFO" />
-  </EntityType>
   <EntityType Name="ACTIONINFO">
     <Key>
       <PropertyRef Name="ID" />
@@ -78,8 +70,9 @@
     <Property Name="MENUICON" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
     <Property Name="ICONWIDTH" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="ICONHEIGHT" Type="Decimal" Precision="38" Scale="0" />
-    <NavigationProperty Name="ROLEINFO" Relationship="Model.FOREUSERID" FromRole="ACTIONINFO" ToRole="ROLEINFO" />
-    <NavigationProperty Name="R_USERINFO_ACTIONINFO" Relationship="Model.FOREACTID" FromRole="ACTIONINFO" ToRole="R_USERINFO_ACTIONINFO" />
+    <NavigationProperty Name="R_DEPARTMENT_ACTIONINFO" Relationship="Model.FORACTIDDA" FromRole="ACTIONINFO" ToRole="R_DEPARTMENT_ACTIONINFO" />
+    <NavigationProperty Name="R_ROLEINFO_ACTIONINFO" Relationship="Model.FORACTIDRA" FromRole="ACTIONINFO" ToRole="R_ROLEINFO_ACTIONINFO" />
+    <NavigationProperty Name="R_USERINFO_ACTIONINFO" Relationship="Model.FORACTIDUA" FromRole="ACTIONINFO" ToRole="R_USERINFO_ACTIONINFO" />
   </EntityType>
   <EntityType Name="DEPARTMENT">
     <Key>
@@ -91,56 +84,117 @@
     <Property Name="TREEPATH" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
     <Property Name="LEVELN" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="ISLEAF" Type="Decimal" Precision="38" Scale="0" />
-    <NavigationProperty Name="USERINFO" Relationship="Model.FOREDEPID" FromRole="DEPARTMENT" ToRole="USERINFO" />
+    <NavigationProperty Name="R_DEPARTMENT_ACTIONINFO" Relationship="Model.FORDEPIDDA" FromRole="DEPARTMENT" ToRole="R_DEPARTMENT_ACTIONINFO" />
+    <NavigationProperty Name="R_USERINFO_DEPARTMENT" Relationship="Model.FORDEPIDUD" FromRole="DEPARTMENT" ToRole="R_USERINFO_DEPARTMENT" />
   </EntityType>
-  <Association Name="FOREUSERID">
-    <End Type="Model.ACTIONINFO" Role="ACTIONINFO" Multiplicity="1" />
-    <End Type="Model.ROLEINFO" Role="ROLEINFO" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="ACTIONINFO">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="ROLEINFO">
-        <PropertyRef Name="ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FOREDEPID">
-    <End Type="Model.DEPARTMENT" Role="DEPARTMENT" Multiplicity="1" />
-    <End Type="Model.USERINFO" Role="USERINFO" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="DEPARTMENT">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="USERINFO">
-        <PropertyRef Name="ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FOREUSERROLEID">
-    <End Type="Model.ROLEINFO" Role="ROLEINFO" Multiplicity="1" />
-    <End Type="Model.USERINFO" Role="USERINFO" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="ROLEINFO">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="USERINFO">
-        <PropertyRef Name="ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="R_USERINFO_ACTIONINFO">
+  <EntityType Name="R_DEPARTMENT_ACTIONINFO">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="DEPARTMENTID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ACTIONID" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="ACTIONINFO" Relationship="Model.FORACTIDDA" FromRole="R_DEPARTMENT_ACTIONINFO" ToRole="ACTIONINFO" />
+    <NavigationProperty Name="DEPARTMENT" Relationship="Model.FORDEPIDDA" FromRole="R_DEPARTMENT_ACTIONINFO" ToRole="DEPARTMENT" />
+  </EntityType>
+  <EntityType Name="R_ROLEINFO_ACTIONINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="ROLEID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ACTIONID" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="ACTIONINFO" Relationship="Model.FORACTIDRA" FromRole="R_ROLEINFO_ACTIONINFO" ToRole="ACTIONINFO" />
+    <NavigationProperty Name="ROLEINFO" Relationship="Model.FORROLEIDRA" FromRole="R_ROLEINFO_ACTIONINFO" ToRole="ROLEINFO" />
+  </EntityType>
+  <EntityType Name="R_USERINFO_ACTIONINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="None" />
     <Property Name="USERINFOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="ACTIONINFOID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="ISPASS" Type="Decimal" Precision="38" Scale="0" />
-    <NavigationProperty Name="ACTIONINFO" Relationship="Model.FOREACTID" FromRole="R_USERINFO_ACTIONINFO" ToRole="ACTIONINFO" />
-    <NavigationProperty Name="USERINFO" Relationship="Model.FOREUSID" FromRole="R_USERINFO_ACTIONINFO" ToRole="USERINFO" />
+    <NavigationProperty Name="ACTIONINFO" Relationship="Model.FORACTIDUA" FromRole="R_USERINFO_ACTIONINFO" ToRole="ACTIONINFO" />
+    <NavigationProperty Name="USERINFO" Relationship="Model.FORUSERIDUA" FromRole="R_USERINFO_ACTIONINFO" ToRole="USERINFO" />
   </EntityType>
-  <Association Name="FOREACTID">
+  <EntityType Name="R_USERINFO_DEPARTMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="USERINFOID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="DEPID" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="DEPARTMENT" Relationship="Model.FORDEPIDUD" FromRole="R_USERINFO_DEPARTMENT" ToRole="DEPARTMENT" />
+    <NavigationProperty Name="USERINFO" Relationship="Model.FORUSERIDUD" FromRole="R_USERINFO_DEPARTMENT" ToRole="USERINFO" />
+  </EntityType>
+  <EntityType Name="R_USERINFO_ROLEINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="USERINFOID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ROLEINFOID" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="ROLEINFO" Relationship="Model.FORROLEIDUR" FromRole="R_USERINFO_ROLEINFO" ToRole="ROLEINFO" />
+    <NavigationProperty Name="USERINFO" Relationship="Model.FORUSERIDUR" FromRole="R_USERINFO_ROLEINFO" ToRole="USERINFO" />
+  </EntityType>
+  <EntityType Name="ROLEINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="ROLENAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="DELFLAG" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="SUBTIME" Type="DateTime" />
+    <Property Name="REMARK" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MODIFIEDON" Type="DateTime" />
+    <Property Name="SORT" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="R_ROLEINFO_ACTIONINFO" Relationship="Model.FORROLEIDRA" FromRole="ROLEINFO" ToRole="R_ROLEINFO_ACTIONINFO" />
+    <NavigationProperty Name="R_USERINFO_ROLEINFO" Relationship="Model.FORROLEIDUR" FromRole="ROLEINFO" ToRole="R_USERINFO_ROLEINFO" />
+  </EntityType>
+  <EntityType Name="USERINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="AGE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="UNAME" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="UPWD" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="SUBTIME" Type="DateTime" />
+    <Property Name="DELFLAG" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MODIFIEDON" Type="DateTime" />
+    <Property Name="REMARK" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="SORT" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="R_USERINFO_ACTIONINFO" Relationship="Model.FORUSERIDUA" FromRole="USERINFO" ToRole="R_USERINFO_ACTIONINFO" />
+    <NavigationProperty Name="R_USERINFO_DEPARTMENT" Relationship="Model.FORUSERIDUD" FromRole="USERINFO" ToRole="R_USERINFO_DEPARTMENT" />
+    <NavigationProperty Name="R_USERINFO_ROLEINFO" Relationship="Model.FORUSERIDUR" FromRole="USERINFO" ToRole="R_USERINFO_ROLEINFO" />
+  </EntityType>
+  <Association Name="FORACTIDDA">
+    <End Type="Model.ACTIONINFO" Role="ACTIONINFO" Multiplicity="0..1" />
+    <End Type="Model.R_DEPARTMENT_ACTIONINFO" Role="R_DEPARTMENT_ACTIONINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIONINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_DEPARTMENT_ACTIONINFO">
+        <PropertyRef Name="ACTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORACTIDRA">
+    <End Type="Model.ACTIONINFO" Role="ACTIONINFO" Multiplicity="0..1" />
+    <End Type="Model.R_ROLEINFO_ACTIONINFO" Role="R_ROLEINFO_ACTIONINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIONINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_ROLEINFO_ACTIONINFO">
+        <PropertyRef Name="ACTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORACTIDUA">
     <End Type="Model.ACTIONINFO" Role="ACTIONINFO" Multiplicity="1" />
     <End Type="Model.R_USERINFO_ACTIONINFO" Role="R_USERINFO_ACTIONINFO" Multiplicity="*" />
     <ReferentialConstraint>
@@ -152,7 +206,43 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FOREUSID">
+  <Association Name="FORDEPIDDA">
+    <End Type="Model.DEPARTMENT" Role="DEPARTMENT" Multiplicity="0..1" />
+    <End Type="Model.R_DEPARTMENT_ACTIONINFO" Role="R_DEPARTMENT_ACTIONINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTMENT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_DEPARTMENT_ACTIONINFO">
+        <PropertyRef Name="DEPARTMENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORDEPIDUD">
+    <End Type="Model.DEPARTMENT" Role="DEPARTMENT" Multiplicity="0..1" />
+    <End Type="Model.R_USERINFO_DEPARTMENT" Role="R_USERINFO_DEPARTMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTMENT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_USERINFO_DEPARTMENT">
+        <PropertyRef Name="DEPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORROLEIDRA">
+    <End Type="Model.ROLEINFO" Role="ROLEINFO" Multiplicity="0..1" />
+    <End Type="Model.R_ROLEINFO_ACTIONINFO" Role="R_ROLEINFO_ACTIONINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLEINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_ROLEINFO_ACTIONINFO">
+        <PropertyRef Name="ROLEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORUSERIDUA">
     <End Type="Model.USERINFO" Role="USERINFO" Multiplicity="1" />
     <End Type="Model.R_USERINFO_ACTIONINFO" Role="R_USERINFO_ACTIONINFO" Multiplicity="*" />
     <ReferentialConstraint>
@@ -160,6 +250,42 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="R_USERINFO_ACTIONINFO">
+        <PropertyRef Name="USERINFOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORUSERIDUD">
+    <End Type="Model.USERINFO" Role="USERINFO" Multiplicity="0..1" />
+    <End Type="Model.R_USERINFO_DEPARTMENT" Role="R_USERINFO_DEPARTMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_USERINFO_DEPARTMENT">
+        <PropertyRef Name="USERINFOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORROLEIDUR">
+    <End Type="Model.ROLEINFO" Role="ROLEINFO" Multiplicity="0..1" />
+    <End Type="Model.R_USERINFO_ROLEINFO" Role="R_USERINFO_ROLEINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLEINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_USERINFO_ROLEINFO">
+        <PropertyRef Name="ROLEINFOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORUSERIDUR">
+    <End Type="Model.USERINFO" Role="USERINFO" Multiplicity="0..1" />
+    <End Type="Model.R_USERINFO_ROLEINFO" Role="R_USERINFO_ROLEINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_USERINFO_ROLEINFO">
         <PropertyRef Name="USERINFOID" />
       </Dependent>
     </ReferentialConstraint>

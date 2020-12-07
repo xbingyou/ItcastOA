@@ -17,6 +17,8 @@ namespace CZBK.ItcastOA.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ACTIONINFO()
         {
+            this.R_DEPARTMENT_ACTIONINFO = new HashSet<R_DEPARTMENT_ACTIONINFO>();
+            this.R_ROLEINFO_ACTIONINFO = new HashSet<R_ROLEINFO_ACTIONINFO>();
             this.R_USERINFO_ACTIONINFO = new HashSet<R_USERINFO_ACTIONINFO>();
         }
     
@@ -36,8 +38,14 @@ namespace CZBK.ItcastOA.Model
         public Nullable<decimal> ICONWIDTH { get; set; }
         public Nullable<decimal> ICONHEIGHT { get; set; }
     
-        public virtual ROLEINFO ROLEINFO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    	[Newtonsoft.Json.JsonIgnore]
+        public virtual ICollection<R_DEPARTMENT_ACTIONINFO> R_DEPARTMENT_ACTIONINFO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    	[Newtonsoft.Json.JsonIgnore]
+        public virtual ICollection<R_ROLEINFO_ACTIONINFO> R_ROLEINFO_ACTIONINFO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    	[Newtonsoft.Json.JsonIgnore]
         public virtual ICollection<R_USERINFO_ACTIONINFO> R_USERINFO_ACTIONINFO { get; set; }
     }
 }

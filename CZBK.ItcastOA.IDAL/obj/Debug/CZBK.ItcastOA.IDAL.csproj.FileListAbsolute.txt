@@ -22,3 +22,5 @@ F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.csproj.CoreCompi
 F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.csproj.CopyComplete
 F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\obj\Debug\CZBK.ItcastOA.IDAL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\bin\Debug\Newtonsoft.Json.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.IDAL\bin\Debug\Newtonsoft.Json.xml

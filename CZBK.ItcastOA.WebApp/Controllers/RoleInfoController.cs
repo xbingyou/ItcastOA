@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace CZBK.ItcastOA.WebApp.Controllers
 {
-    public class RoleInfoController : Controller
+    public class RoleInfoController : BaseController
     {
         IBLL.IRoleinfoService RoleInfoService { get; set; }
         // GET: RoleInfo

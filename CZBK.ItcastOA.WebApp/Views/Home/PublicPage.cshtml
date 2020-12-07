@@ -1,0 +1,360 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Page-Enter" content="revealTrans(duration=5, transition=9)">
+    <script src="~/Content/dist/echarts.min.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <title>PublicPage</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="chart_rentalreturn" style="width: 700px;height:300px;"></div>
+    <div id="chart_station" style="width: 700px;height:300px;"></div>
+    <div id="chart_stationstats" style="width: 700px;height:300px;"></div>
+    <div id="chart_sitestatus" style="width: 500px;height:350px;"></div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getData();
+            //setInterval(function () {
+            //    getData();
+            //}, 100000);//10秒定时刷新
+        });
+        function getData() {
+            func_echarts_pie_rentalreturn();
+            func_echarts_pie_station();
+            func_echarts_pie_stationstats();
+            func_echarts_pie_sitestatus();
+        }
+
+        function func_echarts_pie_rentalreturn() {
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('chart_rentalreturn'));
+
+            // 指定图表的配置项和数据
+            var option = {
+                title: {
+                    text: 'Rental/Return Frequency  (Unit  X:Hour   Y:Times)',
+                    bottom: '92%'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['Rental', 'Return'],
+                    bottom: '87%'
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: []
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+
+            $.ajax({
+                type: "post",
+                url: "/Home/GetEchartsRentalReturn",
+                data:
+                {
+                    async: false,
+                    operate: "myChart"
+                },
+                dataType: "json",        //返回数据形式为json
+                success: function (result) {
+                    for (var i = 0; i < result.length; i++) {
+                        result[i].name;
+                    }
+                    option.xAxis.data = result.category;
+                    option.series = result.series;
+                    option.legend.data = result.legend;
+                    myChart.setOption(option);
+                },
+                error: function (errorMsg) {
+                    //请求失败时执行该函数
+                    alert("图表请求数据失败!");
+                }
+            });
+        }
+
+        function func_echarts_pie_station() {
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('chart_station'));
+
+            // 指定图表的配置项和数据
+            option = {
+                color: ['#3398DB'],
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        axisTick: {
+                            alignWithLabel: true
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: []
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+
+            $.ajax({
+                type: "post",
+                url: "/Home/GetEchartsStation",
+                data:
+                {
+                    async: false,
+                    operate: "myChart"
+                },
+                dataType: "json",        //返回数据形式为json
+                success: function (result) {
+                    for (var i = 0; i < result.length; i++) {
+                        result[i].name;
+                    }
+                    option.xAxis[0].data = result.category;
+                    option.series = result.series;
+                    myChart.setOption(option);
+                },
+                error: function (errorMsg) {
+                    //请求失败时执行该函数
+                    alert("图表请求数据失败!");
+                }
+            });
+        }
+
+        function func_echarts_pie_stationstats() {
+            $.ajax({
+                type: "post",
+                url: "/Home/GetEchartsStationStats",
+                dataType: "json",        //返回数据形式为json
+                success: function (result) {
+                    var myChart = echarts.init(document.getElementById('chart_stationstats'));
+                    var seriesData = [];
+                    var company = [];
+                    var jsonstr = "[]";
+                    var jsonarray = eval('(' + jsonstr + ')');
+                    //请求成功时执行该函数内容，result即为服务器返回的json对象
+                    for (var k in result.hash) {
+                        var arr =
+                        {
+                            "name": k,
+                            "value": result.hash[k]
+                        }
+                        jsonarray.push(arr);
+                    }
+                    for (var a = 0; a < result.category.length; a++) {
+                        //注意，这里的eval函数特别关键，可将后端返回的Json字符串，装有json字符串元素的list集合转为js可用的对象
+                        company[a] = eval('(' + result.category[a] + ')');
+                    }
+                    //for (var i = 0; i < result.data.length; i++) {
+                    //    seriesData[i] = eval('(' + result.data[i] + ')');
+                    //}
+                    options = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                            },
+                            formatter: function (params) {
+                                var res = params[0].name + '<br/>==' + params[0].value + '%';
+                                return res;
+                            }
+                        },
+                        xAxis: {
+                            data: company,
+                            type: 'category',
+                            axisLabel: {
+                                show: true,
+                                interval: 0,
+                                rotate: 40,
+                                textStyle: {
+                                    color: '#333'
+                                }
+                            },
+                        },
+                        yAxis: {
+                            type: 'value',
+                            min: 0,
+                            max: 100,
+                            axisLabel: {
+                                show: true,
+                                interval: 'auto',
+                                formatter: '{value} %'
+                            },
+                        },
+                        series: {
+                            data: jsonarray,
+                            type: 'scatter',
+                            symbol: 'rect',
+                            symbolSize: [14, 6],
+                            itemStyle: {
+                                normal: {
+                                    color: function (params) {
+                                        if (params.value == 0) {
+                                            return "#C53725";
+                                        }
+                                        else if (params.value <= 20) {
+                                            return "#512DA8";
+                                        }
+                                        else if (params.value >= 80) {
+                                            return "#EABA0F";
+                                        }
+                                        else {
+                                            return "#2196F3";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    };
+                    myChart.setOption(options);
+                },
+                error: function (errorMsg) {
+                    //请求失败时执行该函数
+                    alert("图表请求数据失败!");
+                }
+            });
+        }
+
+        function func_echarts_pie_sitestatus() {
+            $.ajax({
+                type: "post",
+                url: "/Home/GetEchartsSiteStatus",
+                dataType: "json",        //返回数据形式为json
+                success: function (result) {
+                    var myChart = echarts.init(document.getElementById('chart_sitestatus'));
+                    var jsonstr = "[]";
+                    var name1 = eval('(' + jsonstr + ')');
+                    var name2 = eval('(' + jsonstr + ')');
+                    var name3 = eval('(' + jsonstr + ')');
+                    var name4 = eval('(' + jsonstr + ')');
+
+                    result.series[0].data.filter((item, index) => {
+                        if (index == 0) {
+                            name1.push(item.name);
+                        }
+                        else if (index == 1) {
+                            name2.push(item.name);
+                        }
+                        else if (index == 2) {
+                            name3.push(item.name);
+                        }
+                        else if (index == 3) {
+                            name4.push(item.name);
+                        }
+                    });
+
+                    options = {
+                        title: {
+                            text: '  Site\nStatus',
+                            left: '33%',
+                            bottom: '43%'
+                        },
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: '{a} <br/>{b} ({d}%)'
+                        },
+                        legend: [{
+                            x: '15%', y: '80%',
+                            textStyle: {
+                                fontSize: 15,
+                                fontFamily: 'Arial Regular black',
+                                color: '#000000'
+                            },
+                            data: name1
+                        }, {                                
+                                x: '45%', y: '80%',
+                                textStyle: {
+                                    fontSize: 15,
+                                    fontFamily: 'Arial Regular black',
+                                    color: '#000000'
+                                },
+                                data: name2
+                            }, {
+                                x: '15%', y: '90%',
+                                textStyle: {
+                                    fontSize: 15,
+                                    fontFamily: 'Arial Regular black',
+                                    color: '#000000'
+                                },
+                                data: name3
+                            }, {
+
+                                x: '45%', y: '90%',
+                                textStyle: {
+                                    fontSize: 15,
+                                    fontFamily: 'Arial Regular black',
+                                    color: '#000000'
+                                },
+                                data: name4
+                            }],
+                        series: [
+                            {
+                                name: 'Site Status',
+                                type: 'pie',
+                                radius: ['20%', '50%'],
+                                center: ['40%', '50%'],
+                                labelLine: {
+                                    show: false
+                                }, label: {
+                                    show: false
+                                },
+                                data: result.series[0].data,
+                                emphasis: {
+                                    itemStyle: {
+                                        shadowBlur: 10,
+                                        shadowOffsetX: 0,
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                    }
+                                }
+                            }
+                        ]
+                    };
+                    myChart.setOption(options);
+                },
+                error: function (errorMsg) {
+                    //请求失败时执行该函数
+                    alert("图表请求数据失败!");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

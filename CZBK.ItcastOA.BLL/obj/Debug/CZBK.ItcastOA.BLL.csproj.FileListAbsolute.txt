@@ -38,3 +38,5 @@ F:\GIT\ItcastOA\CZBK.ItcastOA.BLL\obj\Debug\CZBK.ItcastOA.BLL.csproj.CoreCompile
 F:\GIT\ItcastOA\CZBK.ItcastOA.BLL\obj\Debug\CZBK.ItcastOA.BLL.csproj.CopyComplete
 F:\GIT\ItcastOA\CZBK.ItcastOA.BLL\obj\Debug\CZBK.ItcastOA.BLL.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.BLL\obj\Debug\CZBK.ItcastOA.BLL.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.BLL\bin\Debug\Newtonsoft.Json.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.BLL\bin\Debug\Newtonsoft.Json.xml

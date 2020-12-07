@@ -31,14 +31,46 @@
     <Property Name="LEVELN" Type="number" Precision="38" Scale="0" />
     <Property Name="ISLEAF" Type="number" Precision="38" Scale="0" />
   </EntityType>
-  <EntityType Name="R_USERINFO_ACTIONINFO">
+  <EntityType Name="R_DEPARTMENT_ACTIONINFO">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DEPARTMENTID" Type="number" Precision="38" Scale="0" />
+    <Property Name="ACTIONID" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="R_ROLEINFO_ACTIONINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ROLEID" Type="number" Precision="38" Scale="0" />
+    <Property Name="ACTIONID" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="R_USERINFO_ACTIONINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="None" />
     <Property Name="USERINFOID" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ACTIONINFOID" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ISPASS" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="R_USERINFO_DEPARTMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USERINFOID" Type="number" Precision="38" Scale="0" />
+    <Property Name="DEPID" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="R_USERINFO_ROLEINFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USERINFOID" Type="number" Precision="38" Scale="0" />
+    <Property Name="ROLEINFOID" Type="number" Precision="38" Scale="0" />
   </EntityType>
   <EntityType Name="ROLEINFO">
     <Key>
@@ -67,7 +99,31 @@
     <Property Name="REMARK" Type="nvarchar2" MaxLength="256" />
     <Property Name="SORT" Type="nvarchar2" MaxLength="32" />
   </EntityType>
-  <Association Name="FOREACTID">
+  <Association Name="FORACTIDDA">
+    <End Role="ACTIONINFO" Type="Self.ACTIONINFO" Multiplicity="0..1" />
+    <End Role="R_DEPARTMENT_ACTIONINFO" Type="Self.R_DEPARTMENT_ACTIONINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIONINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_DEPARTMENT_ACTIONINFO">
+        <PropertyRef Name="ACTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORACTIDRA">
+    <End Role="ACTIONINFO" Type="Self.ACTIONINFO" Multiplicity="0..1" />
+    <End Role="R_ROLEINFO_ACTIONINFO" Type="Self.R_ROLEINFO_ACTIONINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIONINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_ROLEINFO_ACTIONINFO">
+        <PropertyRef Name="ACTIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORACTIDUA">
     <End Role="ACTIONINFO" Type="Self.ACTIONINFO" Multiplicity="1" />
     <End Role="R_USERINFO_ACTIONINFO" Type="Self.R_USERINFO_ACTIONINFO" Multiplicity="*" />
     <ReferentialConstraint>
@@ -79,43 +135,55 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FOREDEPID">
-    <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
-    <End Role="USERINFO" Type="Self.USERINFO" Multiplicity="0..1" />
+  <Association Name="FORDEPIDDA">
+    <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="0..1" />
+    <End Role="R_DEPARTMENT_ACTIONINFO" Type="Self.R_DEPARTMENT_ACTIONINFO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DEPARTMENT">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="USERINFO">
-        <PropertyRef Name="ID" />
+      <Dependent Role="R_DEPARTMENT_ACTIONINFO">
+        <PropertyRef Name="DEPARTMENTID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FOREUSERID">
-    <End Role="ACTIONINFO" Type="Self.ACTIONINFO" Multiplicity="1" />
-    <End Role="ROLEINFO" Type="Self.ROLEINFO" Multiplicity="0..1" />
+  <Association Name="FORDEPIDUD">
+    <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="0..1" />
+    <End Role="R_USERINFO_DEPARTMENT" Type="Self.R_USERINFO_DEPARTMENT" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ACTIONINFO">
+      <Principal Role="DEPARTMENT">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="ROLEINFO">
-        <PropertyRef Name="ID" />
+      <Dependent Role="R_USERINFO_DEPARTMENT">
+        <PropertyRef Name="DEPID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FOREUSERROLEID">
-    <End Role="ROLEINFO" Type="Self.ROLEINFO" Multiplicity="1" />
-    <End Role="USERINFO" Type="Self.USERINFO" Multiplicity="0..1" />
+  <Association Name="FORROLEIDRA">
+    <End Role="ROLEINFO" Type="Self.ROLEINFO" Multiplicity="0..1" />
+    <End Role="R_ROLEINFO_ACTIONINFO" Type="Self.R_ROLEINFO_ACTIONINFO" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ROLEINFO">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="USERINFO">
-        <PropertyRef Name="ID" />
+      <Dependent Role="R_ROLEINFO_ACTIONINFO">
+        <PropertyRef Name="ROLEID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FOREUSID">
+  <Association Name="FORROLEIDUR">
+    <End Role="ROLEINFO" Type="Self.ROLEINFO" Multiplicity="0..1" />
+    <End Role="R_USERINFO_ROLEINFO" Type="Self.R_USERINFO_ROLEINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLEINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_USERINFO_ROLEINFO">
+        <PropertyRef Name="ROLEINFOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORUSERIDUA">
     <End Role="USERINFO" Type="Self.USERINFO" Multiplicity="1" />
     <End Role="R_USERINFO_ACTIONINFO" Type="Self.R_USERINFO_ACTIONINFO" Multiplicity="*" />
     <ReferentialConstraint>
@@ -127,31 +195,79 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FORUSERIDUD">
+    <End Role="USERINFO" Type="Self.USERINFO" Multiplicity="0..1" />
+    <End Role="R_USERINFO_DEPARTMENT" Type="Self.R_USERINFO_DEPARTMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_USERINFO_DEPARTMENT">
+        <PropertyRef Name="USERINFOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FORUSERIDUR">
+    <End Role="USERINFO" Type="Self.USERINFO" Multiplicity="0..1" />
+    <End Role="R_USERINFO_ROLEINFO" Type="Self.R_USERINFO_ROLEINFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERINFO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="R_USERINFO_ROLEINFO">
+        <PropertyRef Name="USERINFOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="ModelStoreContainer">
     <EntitySet Name="ACTIONINFO" EntityType="Self.ACTIONINFO" Schema="MYUSER" store:Type="Tables" />
     <EntitySet Name="DEPARTMENT" EntityType="Self.DEPARTMENT" Schema="MYUSER" store:Type="Tables" />
+    <EntitySet Name="R_DEPARTMENT_ACTIONINFO" EntityType="Self.R_DEPARTMENT_ACTIONINFO" Schema="MYUSER" store:Type="Tables" />
+    <EntitySet Name="R_ROLEINFO_ACTIONINFO" EntityType="Self.R_ROLEINFO_ACTIONINFO" Schema="MYUSER" store:Type="Tables" />
     <EntitySet Name="R_USERINFO_ACTIONINFO" EntityType="Self.R_USERINFO_ACTIONINFO" Schema="MYUSER" store:Type="Tables" />
+    <EntitySet Name="R_USERINFO_DEPARTMENT" EntityType="Self.R_USERINFO_DEPARTMENT" Schema="MYUSER" store:Type="Tables" />
+    <EntitySet Name="R_USERINFO_ROLEINFO" EntityType="Self.R_USERINFO_ROLEINFO" Schema="MYUSER" store:Type="Tables" />
     <EntitySet Name="ROLEINFO" EntityType="Self.ROLEINFO" Schema="MYUSER" store:Type="Tables" />
     <EntitySet Name="USERINFO" EntityType="Self.USERINFO" Schema="MYUSER" store:Type="Tables" />
-    <AssociationSet Name="FOREACTID" Association="Self.FOREACTID">
+    <AssociationSet Name="FORACTIDDA" Association="Self.FORACTIDDA">
+      <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
+      <End Role="R_DEPARTMENT_ACTIONINFO" EntitySet="R_DEPARTMENT_ACTIONINFO" />
+    </AssociationSet>
+    <AssociationSet Name="FORACTIDRA" Association="Self.FORACTIDRA">
+      <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
+      <End Role="R_ROLEINFO_ACTIONINFO" EntitySet="R_ROLEINFO_ACTIONINFO" />
+    </AssociationSet>
+    <AssociationSet Name="FORACTIDUA" Association="Self.FORACTIDUA">
       <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
       <End Role="R_USERINFO_ACTIONINFO" EntitySet="R_USERINFO_ACTIONINFO" />
     </AssociationSet>
-    <AssociationSet Name="FOREDEPID" Association="Self.FOREDEPID">
+    <AssociationSet Name="FORDEPIDDA" Association="Self.FORDEPIDDA">
       <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
-      <End Role="USERINFO" EntitySet="USERINFO" />
+      <End Role="R_DEPARTMENT_ACTIONINFO" EntitySet="R_DEPARTMENT_ACTIONINFO" />
     </AssociationSet>
-    <AssociationSet Name="FOREUSERID" Association="Self.FOREUSERID">
-      <End Role="ACTIONINFO" EntitySet="ACTIONINFO" />
+    <AssociationSet Name="FORDEPIDUD" Association="Self.FORDEPIDUD">
+      <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+      <End Role="R_USERINFO_DEPARTMENT" EntitySet="R_USERINFO_DEPARTMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FORROLEIDRA" Association="Self.FORROLEIDRA">
       <End Role="ROLEINFO" EntitySet="ROLEINFO" />
+      <End Role="R_ROLEINFO_ACTIONINFO" EntitySet="R_ROLEINFO_ACTIONINFO" />
     </AssociationSet>
-    <AssociationSet Name="FOREUSERROLEID" Association="Self.FOREUSERROLEID">
+    <AssociationSet Name="FORROLEIDUR" Association="Self.FORROLEIDUR">
       <End Role="ROLEINFO" EntitySet="ROLEINFO" />
-      <End Role="USERINFO" EntitySet="USERINFO" />
+      <End Role="R_USERINFO_ROLEINFO" EntitySet="R_USERINFO_ROLEINFO" />
     </AssociationSet>
-    <AssociationSet Name="FOREUSID" Association="Self.FOREUSID">
+    <AssociationSet Name="FORUSERIDUA" Association="Self.FORUSERIDUA">
       <End Role="USERINFO" EntitySet="USERINFO" />
       <End Role="R_USERINFO_ACTIONINFO" EntitySet="R_USERINFO_ACTIONINFO" />
+    </AssociationSet>
+    <AssociationSet Name="FORUSERIDUD" Association="Self.FORUSERIDUD">
+      <End Role="USERINFO" EntitySet="USERINFO" />
+      <End Role="R_USERINFO_DEPARTMENT" EntitySet="R_USERINFO_DEPARTMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FORUSERIDUR" Association="Self.FORUSERIDUR">
+      <End Role="USERINFO" EntitySet="USERINFO" />
+      <End Role="R_USERINFO_ROLEINFO" EntitySet="R_USERINFO_ROLEINFO" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

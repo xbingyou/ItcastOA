@@ -8,11 +8,16 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>用户管理</title>
-    <link href="~/Content/themes/default/easyui.css" rel="stylesheet" />
+    @*<link href="~/Content/themes/default/easyui.css" rel="stylesheet" />
     <link href="~/Content/themes/icon.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.7.1.min.js"></script>
     <script src="~/Scripts/jquery.easyui.min.js"></script>
-    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>*@
+    <link href="~/Content/jquery-easyui-1.6.8/themes/icon.css" rel="stylesheet" />
+    <link href="~/Content/jquery-easyui-1.6.8/themes/default/easyui.css" rel="stylesheet" />
+    <script src="~/Content/jquery-easyui-1.6.8/jquery.min.js"></script>
+    <script src="~/Content/jquery-easyui-1.6.8/jquery.easyui.min.js"></script>
+    <script src="~/Content/jquery-easyui-1.6.8/locale/easyui-lang-zh_CN.js"></script>
     <script src="~/Scripts/datapattern.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
@@ -27,7 +32,7 @@
                 //获取用户输入的搜索数据.
                 var pars = {
                     name: $("#txtSearchName").val(),
-                    remark:$("#txtSearchRemark").val()
+                    remark: $("#txtSearchRemark").val()
                 };
                 //将获取的搜索的数据发送到服务端。
                 loadData(pars)
@@ -39,8 +44,8 @@
             $('#tt').datagrid({
                 url: '/UserInfo/GetUserInfoList',
                 title: '用户数据表格',
-                width: 700,
-                height: 400,
+                width: 1000,
+                height: 600,
                 fitColumns: true, //列自适应
                 nowrap: false,
                 idField: 'ID',//主键列的列明
@@ -49,11 +54,11 @@
                 singleSelect: false,//是否单行选择
                 pageSize: 5,//页大小，一页多少条数据
                 pageNumber: 1,//当前页，默认的
-                pageList: [ 5, 10,15],
+                pageList: [5, 10, 15],
                 queryParams: pars,//往后台传递参数
                 columns: [[//c.UserName, c.UserPass, c.Email, c.RegTime
                     { field: 'ck', checkbox: true, align: 'left', width: 50 },
-					{ field: 'ID', title: '编号', width: 80 },
+                    { field: 'ID', title: '编号', width: 80 },
                     { field: 'UNAME', title: '姓名', width: 120 },
                     { field: 'UPWD', title: '密码', width: 120 },
                     { field: 'REMARK', title: '备注', width: 120 },
@@ -78,7 +83,7 @@
                     iconCls: 'icon-add',
                     handler: function () {
 
-                       addInfo();
+                        addInfo();
                     }
                 }, {
                     id: 'btnEdit',
@@ -115,7 +120,7 @@
                 $.messager.alert("提示", "请选择要分配权限的用户", "error");
                 return;
             }
-            $("#setUserActionFrame").attr("src","/UserInfo/ShowUserAction/?userId="+rows[0].ID);
+            $("#setUserActionFrame").attr("src", "/UserInfo/ShowUserAction/?userId=" + rows[0].ID);
             $("#setUsrActionDiv").css("display", "block");
             $('#setUsrActionDiv').dialog({
                 title: '为用户分配权限数据',
@@ -149,7 +154,7 @@
                 $.messager.alert("提示", "请选择要分配角色的用户", "error");
                 return;
             }
-            $("#setUserRoleFrame").attr("src","/UserInfo/ShowUserRoleInfo/?id="+rows[0].ID);
+            $("#setUserRoleFrame").attr("src", "/UserInfo/ShowUserRoleInfo/?id=" + rows[0].ID);
             $("#setUsrRoleDiv").css("display", "block");
             $('#setUsrRoleDiv').dialog({
                 title: '为用户分配角色数据',
@@ -225,7 +230,7 @@
                 collapsible: true,
                 maximizable: true,
                 resizable: true,
-                modal:true,
+                modal: true,
                 buttons: [{
                     text: 'Ok',
                     iconCls: 'icon-ok',

@@ -1,35 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
-    <EntitySetMapping Name="USERINFO">
-      <EntityTypeMapping TypeName="Model.USERINFO">
-        <MappingFragment StoreEntitySet="USERINFO">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="AGE" ColumnName="AGE" />
-          <ScalarProperty Name="UNAME" ColumnName="UNAME" />
-          <ScalarProperty Name="UPWD" ColumnName="UPWD" />
-          <ScalarProperty Name="SUBTIME" ColumnName="SUBTIME" />
-          <ScalarProperty Name="DELFLAG" ColumnName="DELFLAG" />
-          <ScalarProperty Name="MODIFIEDON" ColumnName="MODIFIEDON" />
-          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
-          <ScalarProperty Name="SORT" ColumnName="SORT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ROLEINFO">
-      <EntityTypeMapping TypeName="Model.ROLEINFO">
-        <MappingFragment StoreEntitySet="ROLEINFO">
-          <ScalarProperty Name="SORT" ColumnName="SORT" />
-          <ScalarProperty Name="MODIFIEDON" ColumnName="MODIFIEDON" />
-          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
-          <ScalarProperty Name="SUBTIME" ColumnName="SUBTIME" />
-          <ScalarProperty Name="DELFLAG" ColumnName="DELFLAG" />
-          <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ACTIONINFO">
       <EntityTypeMapping TypeName="Model.ACTIONINFO">
         <MappingFragment StoreEntitySet="ACTIONINFO">
@@ -63,12 +34,77 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="R_DEPARTMENT_ACTIONINFO">
+      <EntityTypeMapping TypeName="Model.R_DEPARTMENT_ACTIONINFO">
+        <MappingFragment StoreEntitySet="R_DEPARTMENT_ACTIONINFO">
+          <ScalarProperty Name="ACTIONID" ColumnName="ACTIONID" />
+          <ScalarProperty Name="DEPARTMENTID" ColumnName="DEPARTMENTID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_ROLEINFO_ACTIONINFO">
+      <EntityTypeMapping TypeName="Model.R_ROLEINFO_ACTIONINFO">
+        <MappingFragment StoreEntitySet="R_ROLEINFO_ACTIONINFO">
+          <ScalarProperty Name="ACTIONID" ColumnName="ACTIONID" />
+          <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="R_USERINFO_ACTIONINFO">
       <EntityTypeMapping TypeName="Model.R_USERINFO_ACTIONINFO">
         <MappingFragment StoreEntitySet="R_USERINFO_ACTIONINFO">
           <ScalarProperty Name="ISPASS" ColumnName="ISPASS" />
           <ScalarProperty Name="ACTIONINFOID" ColumnName="ACTIONINFOID" />
           <ScalarProperty Name="USERINFOID" ColumnName="USERINFOID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_USERINFO_DEPARTMENT">
+      <EntityTypeMapping TypeName="Model.R_USERINFO_DEPARTMENT">
+        <MappingFragment StoreEntitySet="R_USERINFO_DEPARTMENT">
+          <ScalarProperty Name="DEPID" ColumnName="DEPID" />
+          <ScalarProperty Name="USERINFOID" ColumnName="USERINFOID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_USERINFO_ROLEINFO">
+      <EntityTypeMapping TypeName="Model.R_USERINFO_ROLEINFO">
+        <MappingFragment StoreEntitySet="R_USERINFO_ROLEINFO">
+          <ScalarProperty Name="ROLEINFOID" ColumnName="ROLEINFOID" />
+          <ScalarProperty Name="USERINFOID" ColumnName="USERINFOID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLEINFO">
+      <EntityTypeMapping TypeName="Model.ROLEINFO">
+        <MappingFragment StoreEntitySet="ROLEINFO">
+          <ScalarProperty Name="SORT" ColumnName="SORT" />
+          <ScalarProperty Name="MODIFIEDON" ColumnName="MODIFIEDON" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="SUBTIME" ColumnName="SUBTIME" />
+          <ScalarProperty Name="DELFLAG" ColumnName="DELFLAG" />
+          <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERINFO">
+      <EntityTypeMapping TypeName="Model.USERINFO">
+        <MappingFragment StoreEntitySet="USERINFO">
+          <ScalarProperty Name="SORT" ColumnName="SORT" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="MODIFIEDON" ColumnName="MODIFIEDON" />
+          <ScalarProperty Name="DELFLAG" ColumnName="DELFLAG" />
+          <ScalarProperty Name="SUBTIME" ColumnName="SUBTIME" />
+          <ScalarProperty Name="UPWD" ColumnName="UPWD" />
+          <ScalarProperty Name="UNAME" ColumnName="UNAME" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

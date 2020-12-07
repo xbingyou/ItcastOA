@@ -42,37 +42,74 @@
     </script>
     <style type="text/css">
         .txt {
-            font-size: 20px;
+            font-size: 27px;
+            color: deepskyblue;
             font-weight: bold;
-            color: blue;
-            margin-top: 10px;
-            margin-left: 100px;
             float: left;
+            margin-top: 17px;
+            margin-left: 30px;
+        }
+        .nlist li a {
+            display: block;
+            line-height: 25px;
+            height: 30px;
+            background: url(nav_icon.gif) no-repeat 5px top;
+            border: 0px solid #fff;
+            color: #333; 
+            text-decoration: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 14px;
+        }
+
+            .nlist li a:hover {
+                border: 1px solid #f5f5ff;
+                font-weight: bold;
+                background: url(nav_icon.gif) no-repeat 5px top;
+                background-color: #eff4fe;
+                text-overflow: inherit;
+            }
+
+        .nlist li.title {
+            margin-top: 5px;
+            line-height: 25px;
+            font-weight: 600;
+            color: #090;
+            padding-left: 25px;
+            background: url(nav_icon.gif) no-repeat 7px -50px;
+        }
+
+        .nlist li ul li {
+            margin-left: -13px;
+            font-weight: normal;
         }
     </style>
 </head>
 <body class="easyui-layout">
-    <div data-options="region:'north',border:false" style="height:85px;background:#B3DFDA;padding:10px;overflow:hidden;background-image:url('/Content/Images/bg3.png')">
-        <img src="/Content/Images/logo.gif" style="float:left" />
-        <span class="txt">ItcastOA办公系统</span>
+    <div data-options="region:'north',border:false" style="height:55px;background:#B3DFDA;overflow:hidden;background-image:url('/Content/Images/bg3.png')">
+        <img src="~/Content/Images/Bicycle.png" style="float:left;margin-left:12px" />
+        <span class="txt">Public Bike Dispatch System</span>
     </div>
-    <div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:3px;">
-        <div class="easyui-accordion" style="width:auto;height:auto;">
-            <div title="用户管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:5px;">
-                <a href="javascript:void(0)" class="detailLink" url="/UserInfo/Index">用户管理</a>
+    <div data-options="region:'west',split:true,title:'Welcome'" style="width:150px;padding:3px;">
+        <div class="easyui-accordion" fit="true">
+            <div title="用户管理" style="overflow:auto;padding:5px;">
+                <ul class="nlist">
+                    <li title="用户管理"><a href="javascript:void(0)" class="detailLink" url="/UserInfo/Index">用户管理</a></li>
+                    <li title="角色管理"><a href="javascript:void(0)" class="detailLink" url="/RoleInfo/Index">角色管理</a></li>
+                </ul>
             </div>
-            <div title="角色管理" data-options="iconCls:'icon-help'" style="padding:5px;">
-                <a href="javascript:void(0)" class="detailLink" url="/RoleInfo/Index">角色管理</a>
+            <div title="网点管理" style="padding:5px;">
+                <a href="javascript:void(0)" class="detailLink" url="/RoleInfo/Index">网点管理</a>
             </div>
         </div>
     </div>
-    <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">版权所有：6688</div>
-    <div data-options="region:'center',title:'Center'">
+    <div data-options="region:'center'">
         <div class="easyui-tabs" style="width:700px;height:250px" fit="true" id="tt">
             <div title="用户管理" style="padding:10px">
                 <iframe src="/UserInfo/Index" width="100%" height="100%" frameborder="0"></iframe>
             </div>
         </div>
-    </div> 
+    </div>
 </body>
 </html>

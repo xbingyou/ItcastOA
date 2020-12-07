@@ -33,6 +33,11 @@ namespace CZBK.ItcastOA.WebApp.Controllers
             if (userInfo != null)
             {
                 Session["userInfo"] = UserInfoService;
+                string sessionId = Guid.NewGuid().ToString();
+                Common.MemcacheHelper.Set(sessionId, Common.SerializeHelper.SerializeToString(userInfo)
+                    , DateTime.Now.AddDays(2));//将登录用户信息存储到Memcache中。AddMinutes(20)
+                Response.Cookies["sessionId"].Value = sessionId;//将Memcache的key以Cookie的形式返回给浏览器。
+                Response.Cookies["sessionId"].Expires = DateTime.Now.AddDays(2);//存的时候指定过期时间
                 return Content("ok:登录成功!!");
             }
             else

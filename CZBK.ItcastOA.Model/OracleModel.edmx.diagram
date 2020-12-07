@@ -5,16 +5,25 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="247753576371406f8bea32d02accef29" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.USERINFO" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ROLEINFO" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="Model.ACTIONINFO" Width="1.5" PointX="5.75" PointY="4.75" />
-        <EntityTypeShape EntityType="Model.DEPARTMENT" Width="1.5" PointX="2.75" PointY="4.75" />
-        <AssociationConnector Association="Model.FOREUSERID" />
-        <AssociationConnector Association="Model.FOREDEPID" />
-        <AssociationConnector Association="Model.FOREUSERROLEID" />
-        <EntityTypeShape EntityType="Model.R_USERINFO_ACTIONINFO" Width="1.5" PointX="8" PointY="3.75" />
-        <AssociationConnector Association="Model.FOREACTID" />
-        <AssociationConnector Association="Model.FOREUSID" />
+        <EntityTypeShape EntityType="Model.ACTIONINFO" Width="1.5" PointX="0.75" PointY="12.875" />
+        <EntityTypeShape EntityType="Model.DEPARTMENT" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.R_DEPARTMENT_ACTIONINFO" Width="1.5" PointX="6" PointY="8" />
+        <EntityTypeShape EntityType="Model.R_ROLEINFO_ACTIONINFO" Width="1.5" PointX="3" PointY="12.375" />
+        <EntityTypeShape EntityType="Model.R_USERINFO_ACTIONINFO" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="Model.R_USERINFO_DEPARTMENT" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="Model.R_USERINFO_ROLEINFO" Width="1.5" PointX="3" PointY="2" />
+        <EntityTypeShape EntityType="Model.ROLEINFO" Width="1.5" PointX="0.75" PointY="9.375" />
+        <EntityTypeShape EntityType="Model.USERINFO" Width="1.5" PointX="0.75" PointY="4.25" />
+        <AssociationConnector Association="Model.FORACTIDDA" />
+        <AssociationConnector Association="Model.FORACTIDRA" />
+        <AssociationConnector Association="Model.FORACTIDUA" />
+        <AssociationConnector Association="Model.FORDEPIDDA" />
+        <AssociationConnector Association="Model.FORDEPIDUD" />
+        <AssociationConnector Association="Model.FORROLEIDRA" />
+        <AssociationConnector Association="Model.FORUSERIDUA" />
+        <AssociationConnector Association="Model.FORUSERIDUD" />
+        <AssociationConnector Association="Model.FORROLEIDUR" />
+        <AssociationConnector Association="Model.FORUSERIDUR" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

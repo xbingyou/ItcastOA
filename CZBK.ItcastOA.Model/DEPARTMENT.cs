@@ -14,6 +14,13 @@ namespace CZBK.ItcastOA.Model
     
     public partial class DEPARTMENT
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DEPARTMENT()
+        {
+            this.R_DEPARTMENT_ACTIONINFO = new HashSet<R_DEPARTMENT_ACTIONINFO>();
+            this.R_USERINFO_DEPARTMENT = new HashSet<R_USERINFO_DEPARTMENT>();
+        }
+    
         public decimal ID { get; set; }
         public string DEPNAME { get; set; }
         public Nullable<decimal> PARENTID { get; set; }
@@ -21,6 +28,11 @@ namespace CZBK.ItcastOA.Model
         public Nullable<decimal> LEVELN { get; set; }
         public Nullable<decimal> ISLEAF { get; set; }
     
-        public virtual USERINFO USERINFO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    	[Newtonsoft.Json.JsonIgnore]
+        public virtual ICollection<R_DEPARTMENT_ACTIONINFO> R_DEPARTMENT_ACTIONINFO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    	[Newtonsoft.Json.JsonIgnore]
+        public virtual ICollection<R_USERINFO_DEPARTMENT> R_USERINFO_DEPARTMENT { get; set; }
     }
 }

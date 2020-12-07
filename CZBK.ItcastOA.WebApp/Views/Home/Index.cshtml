@@ -102,12 +102,12 @@
         }
 
         .txt {
-            font-size: 25px;
-            color: blue;
+            font-size: 27px;
+            color:deepskyblue;
             font-weight: bold;
             float: left;
-            margin-top: 15px;
-            margin-left: 200px;
+            margin-top: 17px;
+            margin-left: 30px;
         }
     </style>
     <script type="text/javascript">
@@ -116,21 +116,21 @@
                 minLeftWidth: 80,
                 minRightWidth: 80,
                 allowTopResize: false,
-                topHeight: 75
+                topHeight: 55
             });
         });
     </script>
 </head>
-<body style="overflow: hidden; background: url(/Content/lib/images/applebg.jpg) no-repeat  center center;">
+<body style="overflow: hidden; background: url(/Content/lib/images/loginbg5.gif) no-repeat  center center;">
     <div id="layout1">
-        <div position="center" title="标题" style="overflow: hidden; background: url(/Content/lib/images/applebg.jpg) no-repeat  center center;">
+        <div position="center" title="公共自行车智能调度" style="overflow: hidden; background: url(/Content/lib/images/loginbg5.gif) no-repeat  center center;">
             <div id="winlinks">
                 <ul></ul>
             </div>
         </div>
         <div position="top" style="background-image:url('/Content/Images/bg3.png')">
-            <img src="/Content/Images/logo.gif" style="float:left" />
-            <span class="txt">ItcastOA协同办公系统</span>
+            <img src="/Content/Images/Bicycle.png" style="float:left;margin-left:12px;" />
+            <span class="txt">Public Bike Dispatch System</span>
         </div>
     </div>
     <div style="display: none;"></div>
@@ -200,7 +200,10 @@
     $(window).resize(onResize);
     $.ligerui.win.removeTaskbar = function () { }; //不允许移除
     $.ligerui.win.createTaskbar(); //页面加载时创建任务栏
-    linksInit();
-    onResize();
+    $.getJSON("/Home/Getmenus", {}, function (data) {
+        links = data;
+        linksInit();
+        onResize();
+    });
 </script>
 </html>

@@ -30,3 +30,5 @@ F:\GIT\ItcastOA\CZBK.ItcastOA.DALFactory\obj\Debug\CZBK.ItcastOA.DALFactory.cspr
 F:\GIT\ItcastOA\CZBK.ItcastOA.DALFactory\obj\Debug\CZBK.ItcastOA.DALFactory.csproj.CopyComplete
 F:\GIT\ItcastOA\CZBK.ItcastOA.DALFactory\obj\Debug\CZBK.ItcastOA.DALFactory.dll
 F:\GIT\ItcastOA\CZBK.ItcastOA.DALFactory\obj\Debug\CZBK.ItcastOA.DALFactory.pdb
+F:\GIT\ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\Newtonsoft.Json.dll
+F:\GIT\ItcastOA\CZBK.ItcastOA.DALFactory\bin\Debug\Newtonsoft.Json.xml

@@ -5,13 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ItcastOA后台管理系统登录</title>
+    <title>公共自行车智能调度系统登录</title>
     <script type="text/javascript">
         if (window.parent.window != window) {
             window.top.location.href = "/Home/CheckLogin";
         }
     </script>
     <script src="../../Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    @*<script src="~/Content/jquery-easyui-1.6.8/jquery.min.js"></script>*@
     <script src="../../Scripts/jquery.validate.min.js" type="text/javascript"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
@@ -21,7 +22,7 @@
         function afterLogin(data) {
             var serverData = data.split(':');
             if (serverData[0] == "ok") {
-                window.location.href="/Home/Index"
+                window.location.href = "/Home/HomeMainPage"
             } else {
                 $("#errorMsg").css("display", "block");
                 $("#errorMsg").text(serverData[1]);
@@ -172,7 +173,7 @@
                                 <tr>
                                     <td align="left" colspan="2">
                                         <h3>
-                                            请使用ItcastOA管理系统账号登录
+                                            请使用公共自行车管理系统账号登录
                                         </h3>
                                     </td>
                                 </tr>
@@ -239,7 +240,7 @@
             </div>
         </div>
         <div id="logincopyright">
-            Copyright ? 2015 itcast.com
+            Copyright ? 2020 wellsun
         </div>
     </div>
 </body>
