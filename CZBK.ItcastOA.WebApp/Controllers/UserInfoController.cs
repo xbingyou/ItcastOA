@@ -2,11 +2,13 @@
 using CZBK.ItcastOA.IBLL;
 using CZBK.ItcastOA.Model;
 using CZBK.ItcastOA.Model.EnumType;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CZBK.ItcastOA.Common;
 
 namespace CZBK.ItcastOA.WebApp.Controllers
 {
@@ -24,14 +26,20 @@ namespace CZBK.ItcastOA.WebApp.Controllers
         }
 
         #region 获取用户列表数据
-        public ActionResult GetUserInfoList()
+        public ActionResult GetUserInfoList(string strID,string strName)
         {
             int pageIndex = Request["page"] != null ? int.Parse(Request["page"]) : 1;
             int pageSize = Request["rows"] != null ? int.Parse(Request["rows"]) : 5;
             int totalCount;
             short delFlag = (short)DeleteEnumType.Normarl;
+            int nID = BasePubfun.ConvertToInt32(strID, -1);            
+            System.Linq.Expressions.Expression<Func<USERINFO, bool>> whereLambda = c => c.DELFLAG == delFlag;
+            if (nID >= 0)
+                whereLambda = whereLambda.And(c => c.ID == nID);
+            if (!string.IsNullOrEmpty(strName) && strName.Length >= 1)
+                whereLambda = whereLambda.And(c => c.UNAME.Contains(strName));
             var userInfoList = UserInfoService.LoadPageEntities(pageIndex, pageSize, out totalCount,
-                c => c.DELFLAG == delFlag, c => c.ID, true);
+                whereLambda, c => c.ID, true);
             var temp = from u in userInfoList
                        select new
                        {
@@ -70,7 +78,7 @@ namespace CZBK.ItcastOA.WebApp.Controllers
         #region 添加用户数据
         public ActionResult AddUserInfo(USERINFO userInfo)
         {
-            userInfo.ID = decimal.Parse(userInfo.SORT);
+            userInfo.ID = userInfo.ID;
             userInfo.DELFLAG = 0;
             userInfo.MODIFIEDON = DateTime.Now;
             userInfo.SUBTIME = DateTime.Now;
@@ -84,7 +92,17 @@ namespace CZBK.ItcastOA.WebApp.Controllers
         {
             decimal id = decimal.Parse(Request["id"]);
             USERINFO userInfo = UserInfoService.LoadEntities(c => c.ID == id).FirstOrDefault();
-            return Json(userInfo, JsonRequestBehavior.AllowGet);
+            //使用匿名类，解决USERINFO中有集合类数据ICollection<R_USERINFO_ACTIONINFO>转换JSON失败的问题
+            var obj = new
+            {
+                userInfo.UNAME,
+                userInfo.UPWD,
+                userInfo.REMARK,
+                userInfo.SORT,
+                userInfo.DELFLAG,
+                userInfo.SUBTIME
+            };
+            return Json(obj, JsonRequestBehavior.AllowGet);
         }
         #endregion
 

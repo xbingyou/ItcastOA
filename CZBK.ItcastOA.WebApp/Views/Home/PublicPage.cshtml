@@ -63,7 +63,7 @@
                 },
                 xAxis: {
                     type: 'category',
-                    boundaryGap: false,
+                    boundaryGap: false
                 },
                 yAxis: {
                     type: 'value'
@@ -207,7 +207,7 @@
                                 textStyle: {
                                     color: '#333'
                                 }
-                            },
+                            }
                         },
                         yAxis: {
                             type: 'value',
@@ -217,7 +217,7 @@
                                 show: true,
                                 interval: 'auto',
                                 formatter: '{value} %'
-                            },
+                            }
                         },
                         series: {
                             data: jsonarray,
@@ -265,21 +265,26 @@
                     var name2 = eval('(' + jsonstr + ')');
                     var name3 = eval('(' + jsonstr + ')');
                     var name4 = eval('(' + jsonstr + ')');
+                    name1.push(result.series[0].data[0].name);
+                    name1.push(result.series[0].data[1].name);
+                    name1.push(result.series[0].data[2].name);
+                    name1.push(result.series[0].data[3].name);
 
-                    result.series[0].data.filter((item, index) => {
-                        if (index == 0) {
-                            name1.push(item.name);
-                        }
-                        else if (index == 1) {
-                            name2.push(item.name);
-                        }
-                        else if (index == 2) {
-                            name3.push(item.name);
-                        }
-                        else if (index == 3) {
-                            name4.push(item.name);
-                        }
-                    });
+                    //以下不兼容IE
+                    //result.series[0].data.filter((item, index) => {
+                    //    if (index == 0) {
+                    //        name1.push(item.name);
+                    //    }
+                    //    else if (index == 1) {
+                    //        name2.push(item.name);
+                    //    }
+                    //    else if (index == 2) {
+                    //        name3.push(item.name);
+                    //    }
+                    //    else if (index == 3) {
+                    //        name4.push(item.name);
+                    //    }
+                    //});
 
                     options = {
                         title: {
@@ -333,7 +338,8 @@
                                 center: ['40%', '50%'],
                                 labelLine: {
                                     show: false
-                                }, label: {
+                                },
+                                label: {
                                     show: false
                                 },
                                 data: result.series[0].data,

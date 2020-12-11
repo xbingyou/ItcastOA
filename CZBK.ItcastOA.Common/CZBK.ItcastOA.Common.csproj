@@ -59,7 +59,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePubfun.cs" />
+    <Compile Include="BaseValidator\BaseValidationDefine.cs" />
+    <Compile Include="BaseValidator\BaseValidator.cs" />
+    <Compile Include="BaseValidator\DoubleValidator.cs" />
+    <Compile Include="BaseValidator\IBaseValidator.cs" />
     <Compile Include="MemcacheHelper.cs" />
+    <Compile Include="ParameterRebinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializeHelper.cs" />
     <Compile Include="ValidateCode.cs" />
