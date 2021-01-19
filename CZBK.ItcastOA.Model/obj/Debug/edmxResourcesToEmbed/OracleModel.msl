@@ -4,6 +4,7 @@
     <EntitySetMapping Name="ACTIONINFO">
       <EntityTypeMapping TypeName="Model.ACTIONINFO">
         <MappingFragment StoreEntitySet="ACTIONINFO">
+          <ScalarProperty Name="BELONGMENU" ColumnName="BELONGMENU" />
           <ScalarProperty Name="ICONHEIGHT" ColumnName="ICONHEIGHT" />
           <ScalarProperty Name="ICONWIDTH" ColumnName="ICONWIDTH" />
           <ScalarProperty Name="MENUICON" ColumnName="MENUICON" />

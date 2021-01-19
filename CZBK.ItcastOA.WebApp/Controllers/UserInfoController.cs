@@ -86,7 +86,14 @@ namespace CZBK.ItcastOA.WebApp.Controllers
             return Content("ok");
         }
         #endregion
-
+        public ActionResult IDExist(string IDVal)
+        {
+            int nID = BasePubfun.ConvertToInt32(IDVal);
+            bool isExist = UserInfoService.LoadEntities(c => c.ID == nID).FirstOrDefault() != null;
+            if (isExist)
+                return Content("true");
+            return Content("false");
+        }
         #region 展示要修改的数据
         public ActionResult ShowEditInfo()
         {

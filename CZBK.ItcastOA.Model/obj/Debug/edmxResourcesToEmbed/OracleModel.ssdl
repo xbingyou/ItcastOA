@@ -14,11 +14,12 @@
     <Property Name="ACTIONMETHODNAME" Type="varchar2" MaxLength="64" />
     <Property Name="CONTROLLERNAME" Type="varchar2" MaxLength="64" />
     <Property Name="ACTIONINFONAME" Type="varchar2" MaxLength="64" />
-    <Property Name="SORT" Type="varchar2" MaxLength="16" />
+    <Property Name="BELONGMENU" Type="number" Precision="38" Scale="0" />
     <Property Name="ACTIONTYPEENUM" Type="number" Precision="38" Scale="0" />
     <Property Name="MENUICON" Type="varchar2" MaxLength="64" />
     <Property Name="ICONWIDTH" Type="number" Precision="38" Scale="0" />
     <Property Name="ICONHEIGHT" Type="number" Precision="38" Scale="0" />
+    <Property Name="SORT" Type="varchar2" MaxLength="16" />
   </EntityType>
   <EntityType Name="DEPARTMENT">
     <Key>
@@ -51,7 +52,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="None" />
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="USERINFOID" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ACTIONINFOID" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ISPASS" Type="number" Precision="38" Scale="0" />

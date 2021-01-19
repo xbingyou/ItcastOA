@@ -1,4 +1,5 @@
-﻿@{
+﻿@model CZBK.ItcastOA.Model.USERINFO
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Index.cshtml";
 }
@@ -22,12 +23,34 @@
             hideButton();
         });
         loadData();
+
+        var isRepetition = false;
         $.extend($.fn.validatebox.defaults.rules, {
             idNum: { //验证数字
                 validator: function (value, param) {
                     return /^[0-9]*[1-9][0-9]*$/.test(value);
                 },
                 message: '请输入正确的编号'
+            },
+            idExist: {//验证数据库是否存在
+                validator: function (value, param) {
+                    $.ajax({
+                        type: "post",
+                        dataType: "text",
+                        async: false,//是否异步执行
+                        url: '/UserInfo/IDExist',
+                        data: { IDVal: value },
+                        success: function (result) {
+                            //此ID存在返回false，并提示message
+                            isRepetition = (result == "true" ? false : true);
+                        },
+                        error: function (result) {
+                            isRepetition = false;
+                        }
+                    });
+                    return isRepetition;                    
+                },
+                message: '此编号已存在'
             },
             equals: {
                 validator: function (value, param) {
@@ -41,7 +64,6 @@
     function loadData(pars) {
         $('#tt').datagrid({
             url: '/UserInfo/GetUserInfoList',
-            title: '用户数据表格',
             width: document.body.clientWidth - 200,
             fitColumns: true, //列自适应
             nowrap: false,
@@ -49,9 +71,9 @@
             loadMsg: '正在加载用户的信息...',
             pagination: true,//是否有分页
             singleSelect: false,//是否单行选择
-            pageSize: 5,//页大小，一页多少条数据
+            pageSize: 10,//页大小，一页多少条数据
             pageNumber: 1,//当前页，默认的
-            pageList: [5, 10, 15],
+            pageList: [10, 20, 30],
             queryParams: pars,//往后台传递参数
             columns: [[//c.UserName, c.UserPass, c.Email, c.RegTime
                 //{ field: 'ck', checkbox: true, align: 'left', width: 50 },
@@ -60,9 +82,9 @@
                 { field: 'UPWD', title: '密码', width: 120 },
                 { field: 'REMARK', title: '备注', width: 120 },
                 {
-                    field: 'SUBTIME', title: '时间', width: 80, align: 'right',
+                    field: 'SUBTIME', title: '时间', width: 120, align: 'right',
                     formatter: function (value, row, index) {
-                        return (eval(value.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-M-d");
+                        return (eval(value.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).pattern("yyyy-MM-dd HH:mm:ss");
                     }
                 }
             ]],
@@ -204,6 +226,7 @@
             title: '添加用户数据',
             width: 300,
             height: 300,
+            closable: false,
             collapsible: false,
             maximizable: false,
             resizable: false,
@@ -221,11 +244,12 @@
                 text: '取消',
                 iconCls: 'icon-cancel',
                 handler: function () {
+                    $('#addForm').form('clear');
                     $('#addDiv').dialog('close');
+                    $("#addForm input").val("");
                 }
             }]
         });
-
     }
     //完成添加后调用该方法
     function afterAdd(data) {
@@ -262,6 +286,7 @@
             title: '编辑用户数据',
             width: 300,
             height: 300,
+            closable: false,
             modal: true,
             buttons: [{
                 text: '确定',
@@ -276,7 +301,9 @@
                 text: '取消',
                 iconCls: 'icon-cancel',
                 handler: function () {
+                    $('#editForm').form('clear');
                     $('#editDiv').dialog('close');
+                    $("#editForm input").val("");
                 }
             }]
         });
@@ -287,6 +314,7 @@
             $('#editForm').form('clear');
             $('#editDiv').dialog('close');
             $('#tt').datagrid('reload');//加载表格不会跳到第一页。
+            $("#editForm input").val("");
         } else {
             $.messager.alert("提示", "修改的数据失败", "error");
         }
@@ -300,7 +328,7 @@
     }
 </script>
 <div>
-    <table id="tt" title="标题，可以使用代码进行初始化，也可以使用这种属性的方式"></table>
+    <table id="tt"></table>
 </div>
 <div id="tb" style="padding:3px 3px 3px 10px">
     <span>编号：</span>
@@ -320,7 +348,7 @@
     @using (Ajax.BeginForm("AddUserInfo", "UserInfo", new { }, new AjaxOptions() { HttpMethod = "post", OnSuccess = "afterAdd" }, new { id = "addForm" }))
     {
         <table>
-            <tr><td><div style="width: 48px;">编号</div></td><td><input type="text" name="ID" class="easyui-textbox" data-options="required:true,validType:['idNum','length[2,5]']" /></td></tr>
+            <tr><td><div style="width: 48px;">编号</div></td><td><input type="text" name="ID" class="easyui-textbox" data-options="required:true,validType:['idNum','length[2,5]','idExist']" /></td></tr>
             <tr><td>用户名</td><td><input type="text" name="UNAME" class="easyui-textbox" data-options="required:true" /></td></tr>
             <tr><td>密码</td><td><input type="password" name="UPWD" id="pwd" class="easyui-textbox" data-options="required:true" /></td></tr>
             <tr><td>确认密码</td><td><input type="password" name="subject" class="easyui-textbox" data-options="required:true" validType="equals['#pwd']" /></td></tr>

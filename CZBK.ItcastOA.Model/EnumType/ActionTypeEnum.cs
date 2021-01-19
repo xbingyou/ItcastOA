@@ -9,12 +9,16 @@ namespace CZBK.ItcastOA.Model.EnumType
     public enum ActionTypeEnum
     {
         /// <summary>
+        /// 一级菜单权限
+        /// </summary>
+        MainMenuActionType = 1,
+        /// <summary>
+        /// 二级菜单权限
+        /// </summary>
+        MenuActionType = 2,
+        /// <summary>
         /// 普通权限
         /// </summary>
-        NormalActioinType = 0,
-        /// <summary>
-        /// 菜单权限
-        /// </summary>
-        MenumActionType = 1
+        NormalActioinType = 3
     }
 }

@@ -37,6 +37,7 @@ namespace CZBK.ItcastOA.Model
         public string MENUICON { get; set; }
         public Nullable<decimal> ICONWIDTH { get; set; }
         public Nullable<decimal> ICONHEIGHT { get; set; }
+        public Nullable<decimal> BELONGMENU { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
     	[Newtonsoft.Json.JsonIgnore]

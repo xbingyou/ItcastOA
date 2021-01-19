@@ -73,6 +73,7 @@
     <NavigationProperty Name="R_DEPARTMENT_ACTIONINFO" Relationship="Model.FORACTIDDA" FromRole="ACTIONINFO" ToRole="R_DEPARTMENT_ACTIONINFO" />
     <NavigationProperty Name="R_ROLEINFO_ACTIONINFO" Relationship="Model.FORACTIDRA" FromRole="ACTIONINFO" ToRole="R_ROLEINFO_ACTIONINFO" />
     <NavigationProperty Name="R_USERINFO_ACTIONINFO" Relationship="Model.FORACTIDUA" FromRole="ACTIONINFO" ToRole="R_USERINFO_ACTIONINFO" />
+    <Property Name="BELONGMENU" Type="Decimal" Precision="38" Scale="0" />
   </EntityType>
   <EntityType Name="DEPARTMENT">
     <Key>

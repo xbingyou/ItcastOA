@@ -19,11 +19,12 @@
           <Property Name="ACTIONMETHODNAME" Type="varchar2" MaxLength="64" />
           <Property Name="CONTROLLERNAME" Type="varchar2" MaxLength="64" />
           <Property Name="ACTIONINFONAME" Type="varchar2" MaxLength="64" />
-          <Property Name="SORT" Type="varchar2" MaxLength="16" />
+          <Property Name="BELONGMENU" Type="number" Precision="38" Scale="0" />
           <Property Name="ACTIONTYPEENUM" Type="number" Precision="38" Scale="0" />
           <Property Name="MENUICON" Type="varchar2" MaxLength="64" />
           <Property Name="ICONWIDTH" Type="number" Precision="38" Scale="0" />
           <Property Name="ICONHEIGHT" Type="number" Precision="38" Scale="0" />
+          <Property Name="SORT" Type="varchar2" MaxLength="16" />
         </EntityType>
         <EntityType Name="DEPARTMENT">
           <Key>
@@ -56,7 +57,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="None" />
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="USERINFOID" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ACTIONINFOID" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ISPASS" Type="number" Precision="38" Scale="0" />
@@ -352,6 +353,7 @@
           <NavigationProperty Name="R_DEPARTMENT_ACTIONINFO" Relationship="Model.FORACTIDDA" FromRole="ACTIONINFO" ToRole="R_DEPARTMENT_ACTIONINFO" />
           <NavigationProperty Name="R_ROLEINFO_ACTIONINFO" Relationship="Model.FORACTIDRA" FromRole="ACTIONINFO" ToRole="R_ROLEINFO_ACTIONINFO" />
           <NavigationProperty Name="R_USERINFO_ACTIONINFO" Relationship="Model.FORACTIDUA" FromRole="ACTIONINFO" ToRole="R_USERINFO_ACTIONINFO" />
+          <Property Name="BELONGMENU" Type="Decimal" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="DEPARTMENT">
           <Key>
@@ -578,6 +580,7 @@
           <EntitySetMapping Name="ACTIONINFO">
             <EntityTypeMapping TypeName="Model.ACTIONINFO">
               <MappingFragment StoreEntitySet="ACTIONINFO">
+                <ScalarProperty Name="BELONGMENU" ColumnName="BELONGMENU" />
                 <ScalarProperty Name="ICONHEIGHT" ColumnName="ICONHEIGHT" />
                 <ScalarProperty Name="ICONWIDTH" ColumnName="ICONWIDTH" />
                 <ScalarProperty Name="MENUICON" ColumnName="MENUICON" />

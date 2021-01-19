@@ -189,7 +189,7 @@ namespace CZBK.ItcastOA.WebApp.Controllers
             //获取登陆用户的角色
             var userRoleInfo = userInfo.R_USERINFO_ROLEINFO;
             //根据登陆用户的角色获取对应的菜单权限
-            short actionTypeEnum = (short)ActionTypeEnum.MenumActionType;
+            short actionTypeEnum = (short)ActionTypeEnum.MenuActionType;
             var roleActions = from r in userRoleInfo
                               from a in r.ROLEINFO.R_ROLEINFO_ACTIONINFO
                               select a.ACTIONINFO;

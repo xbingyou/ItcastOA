@@ -262,30 +262,10 @@
                     var myChart = echarts.init(document.getElementById('chart_sitestatus'));
                     var jsonstr = "[]";
                     var name1 = eval('(' + jsonstr + ')');
-                    var name2 = eval('(' + jsonstr + ')');
-                    var name3 = eval('(' + jsonstr + ')');
-                    var name4 = eval('(' + jsonstr + ')');
                     name1.push(result.series[0].data[0].name);
                     name1.push(result.series[0].data[1].name);
                     name1.push(result.series[0].data[2].name);
                     name1.push(result.series[0].data[3].name);
-
-                    //以下不兼容IE
-                    //result.series[0].data.filter((item, index) => {
-                    //    if (index == 0) {
-                    //        name1.push(item.name);
-                    //    }
-                    //    else if (index == 1) {
-                    //        name2.push(item.name);
-                    //    }
-                    //    else if (index == 2) {
-                    //        name3.push(item.name);
-                    //    }
-                    //    else if (index == 3) {
-                    //        name4.push(item.name);
-                    //    }
-                    //});
-
                     options = {
                         title: {
                             text: '  Site\nStatus',
@@ -304,32 +284,7 @@
                                 color: '#000000'
                             },
                             data: name1
-                        }, {                                
-                                x: '45%', y: '80%',
-                                textStyle: {
-                                    fontSize: 15,
-                                    fontFamily: 'Arial Regular black',
-                                    color: '#000000'
-                                },
-                                data: name2
-                            }, {
-                                x: '15%', y: '90%',
-                                textStyle: {
-                                    fontSize: 15,
-                                    fontFamily: 'Arial Regular black',
-                                    color: '#000000'
-                                },
-                                data: name3
-                            }, {
-
-                                x: '45%', y: '90%',
-                                textStyle: {
-                                    fontSize: 15,
-                                    fontFamily: 'Arial Regular black',
-                                    color: '#000000'
-                                },
-                                data: name4
-                            }],
+                        }],
                         series: [
                             {
                                 name: 'Site Status',
